@@ -1,0 +1,164 @@
+.contest-page {
+  margin: 15em 0 0 0;
+}
+
+.contest-container {
+  display: flex;
+  .contest-details-container {
+    max-width: 700px;
+    margin: 0 2em 0 0;
+    .contest-title-wrapper {
+      h2 {
+        font-size: 22px;
+        font-weight: 600;
+        color: #ffb200;
+        margin: 0;
+      }
+      h1 {
+        font-weight: 600;
+        font-size: 3em;
+        color: white;
+        margin: 0.5em 0;
+      }
+      .draw-date-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        p {
+          margin: 0;
+          color: #c4cbf9;
+          font-size: 1.1em;
+        }
+        span {
+          color: #ec1379;
+        }
+      }
+    }
+    .contest-description {
+      border-top: 1px solid #1e1659;
+      margin: 1em 0;
+      padding: 1em 0;
+      h2 {
+        color: white;
+        font-weight: 600;
+        font-size: 2em;
+      }
+      p {
+        font-weight: 500;
+        color: #c4cbf9;
+        font-size: 1.1em;
+        line-height: 1.5em;
+      }
+    }
+    .contest-specs {
+      h2 {
+        color: white;
+        font-weight: 600;
+        font-size: 2em;
+      }
+      .specs-container {
+        display: flex;
+        flex-wrap: wrap;
+        .spec-wrapper {
+          flex-basis: 40%;
+          box-sizing: border-box;
+          margin: 0 1em 1em 0;
+          display: flex;
+          align-items: center;
+          background-color: #170943;
+          padding: 1em;
+          img {
+            display: inline-block;
+            margin: 0 1.5em 0 0;
+            width: 66px;
+          }
+          .spec-info-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            p:first-child {
+              display: inline-block;
+              color: #22b868;
+              font-size: 1.2em;
+              margin: 0 0 0.6em 0;
+            }
+            p:nth-child(2) {
+              color: white;
+              font-size: 1.6em;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .ticket-purchase-container {
+    height: fit-content;
+    padding: 30px 30px;
+    background-color: #4939c0;
+    border-radius: 25px;
+    .countdown-container {
+      margin: 0 0 3em 0;
+      p {
+        color: #c4cbf9;
+        text-align: center;
+      }
+      .countdown-wrapper {
+        display: flex;
+        .countdown-item {
+          margin: 0 1em;
+          p {
+            text-align: center;
+            margin: 0;
+          }
+          p:first-child {
+            font-size: 2.5em;
+            color: #ec6624;
+            margin: 0 0 10px 0;
+          }
+        }
+      }
+    }
+    .tickets-sold-container {
+      p {
+        color: white;
+        font-weight: 600;
+        font-size: 1.4em;
+        margin: 0;
+      }
+      .loading-bar-wrapper {
+        margin: 1em 0;
+        div {
+          display: flex;
+          justify-content: space-between;
+          p {
+            font-size: 1.1em;
+          }
+        }
+        .loading-bar {
+          height: 0.7em;
+          border-radius: 50px;
+          width: 100%;
+          margin: 1.2em 0;
+        }
+        p {
+          font-size: 1em;
+        }
+      }
+    }
+    .ticket-price-wrapper {
+        margin: 3em 0;
+      p:first-child{
+        color: white;
+        font-size: 2.2em;
+        font-weight: 600;
+      }
+      p{
+        color: #c4cbf9;
+        margin: 0;
+        text-align: center;
+      }
+    }
+  }
+}

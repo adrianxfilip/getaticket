@@ -1,0 +1,106 @@
+.landing{
+    box-sizing: border-box;
+    width: 100vw;
+    background-size: 100%;
+    justify-content: center;
+    background-image: url("../Assets/circle.png");
+    background-repeat: no-repeat;
+    .wrapper{
+        padding:0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .luck{
+        color: #ffb200;
+        text-align: center;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        margin: 0 0 2em 0;
+    }
+    h1{
+        color: white;
+        text-align: center;
+        font-size: 7em;
+        font-weight: 700;
+        margin: 0;
+    }
+    p{
+        color: white;
+        font-weight: 400;
+        font-size: 1.4em;
+        text-align: center;
+        margin: 0 1em;
+    }
+    a{
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+    }
+    button{
+        display: block;
+        margin: 2em auto 0;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        padding: 1em 1em 0.8em;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 700;
+        background: #fc4a1a;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */        
+        color: white;
+        transition-duration: 0.1s;
+        box-shadow:
+        0px 0.7px 2.2px rgba(0, 0, 0, 0.02),
+        0px 1.6px 5.3px rgba(0, 0, 0, 0.028),
+        0px 3px 10px rgba(0, 0, 0, 0.035),
+        0px 5.4px 17.9px rgba(0, 0, 0, 0.042),
+        0px 10px 33.4px rgba(0, 0, 0, 0.05),
+        0px 24px 80px rgba(0, 0, 0, 0.07)
+      ;
+    }
+    button:hover{
+        transform: scale(1.05);
+        transition-duration: 0.1s;
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+    .landing{
+        background-size: contain;
+        h1{
+            font-size: 6em;
+        }
+        .wrapper{
+            padding: 5em 0 0 0;
+        }
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .landing{
+        .wrapper{
+            margin: 0;
+            height: fit-content;
+        }
+        .luck{
+            margin: 0 0 1em 0;
+        }
+        h1{
+            font-size: 4em;
+        }
+        p{
+            font-size: 1em;
+            margin: 0 2em;
+        }
+        .wrapper{
+            padding: 10em 0 0 0;
+        }
+        button{
+            font-size: 1.3em;
+        }
+    }
+  }

@@ -1,0 +1,51 @@
+footer {
+  background-color: #2d0865;
+  background-image: url("../Assets/round-shape-2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0 -2px;
+  padding: 10em 0 5em 0;
+  margin: 5em 0 0 0;
+  .footer-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  ul {
+    list-style-type: none;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      margin: 0 2em 0 0;
+      a {
+        text-decoration: none;
+        color: #d2d5fc;
+        font-weight: 400;
+        font-size: 1.1em;
+      }
+    }
+  }
+  hr {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-color: rgba(104, 111, 197, 0.4) !important;
+    margin: 3em 0;
+  }
+  .links-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    p{
+        margin: 0;
+        font-size: 1.2em;
+        font-weight: 400;
+        color:#d2d5fc;
+    }
+    .fi{
+        color: #d2d5fc;
+        font-size: 2em;
+        margin: 0 0 0 1em;
+    }
+  }
+}
