@@ -119,6 +119,7 @@ export default function CurrentContests() {
                     contestID={contest._id}
                     key={index}
                   ></ContestCard>
+                  
                 );
               })
             : ""}

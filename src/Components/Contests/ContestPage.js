@@ -6,6 +6,7 @@ import displacement from "../../Assets/displacement.png";
 import horsepower from "../../Assets/horsepower.png";
 import km from "../../Assets/km.png";
 import year from "../../Assets/year.png";
+import ImageCarousel from "./ContestImagesCarousel";
 
 const specAssets = {
   displacement: ["Capacitate", displacement],
@@ -62,7 +63,7 @@ export default function ContestPage() {
 
   useEffect(() => {
     if (contests) {
-      var contest = contests.filter((contest) => contest._id === id)[0]
+      var contest = contests.filter((contest) => contest._id === id)[0];
       setContestData(contest);
       setPercentage((100 * contest.soldTickets) / contest.totalTickets);
       setContestDate(new Date(contest.date));
@@ -107,99 +108,137 @@ export default function ContestPage() {
     }
   }, [contestDate]);
 
+  const [ticketNumber, setTicketNumber] = useState(1);
+
+  const inputRef = useRef(null);
+
   return (
     <div className="contest-page">
-      <div className="contest-container">
-        <div className="contest-details-container">
-          <div className="contest-title-wrapper">
-            <h2>Participă pentru șansa de a câștiga</h2>
-            <h1>{contestData.name}</h1>
-            <div className="draw-date-wrapper">
-              <p>
-                Data extragerii:{" "}
-                <span>
-                  {contestDate.getDay() +
-                    " " +
-                    months[contestDate.getMonth()] +
-                    " " +
-                    contestDate.getFullYear()}
-                </span>
-              </p>
-              <p>
-                Limita tickete: <span>{contestData.maxTickets}</span>
-              </p>
+      <div className="contest-wrapper">
+        <ImageCarousel images={contestData.images}></ImageCarousel>
+        <div className="contest-container">
+          <div className="contest-details-container">
+            <div className="contest-title-wrapper">
+              <h2>Participă pentru șansa de a câștiga</h2>
+              <h1>{contestData.name}</h1>
+              <div className="draw-date-wrapper">
+                <p>
+                  Data extragerii:{" "}
+                  <span>
+                    {contestDate.getDay() +
+                      " " +
+                      months[contestDate.getMonth()] +
+                      " " +
+                      contestDate.getFullYear()}
+                  </span>
+                </p>
+                <p>
+                  Limita tickete: <span>{contestData.maxTickets}</span>
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="contest-description">
-            <h2>Descriere</h2>
-            <p>{contestData.overview}</p>
-          </div>
-          <div className="contest-specs">
-            <h2>Specificații</h2>
-            <div className="specs-container">
-              {Object.keys(contestData.specs).map((key, index) => {
-                return (
-                  <div className="spec-wrapper" key={index}>
-                    <img src={specAssets[key][1]}></img>
-                    <div className="spec-info-wrapper">
-                      <p>{specAssets[key][0]}</p>
-                      <p>{contestData.specs[key]}</p>
+            <div className="contest-description">
+              <h2>Descriere</h2>
+              <p>{contestData.overview}</p>
+            </div>
+            <div className="contest-specs">
+              <h2>Specificații</h2>
+              <div className="specs-container">
+                {Object.keys(contestData.specs).map((key, index) => {
+                  return (
+                    <div className="spec-wrapper" key={index}>
+                      <img src={specAssets[key][1]}></img>
+                      <div className="spec-info-wrapper">
+                        <p>{specAssets[key][0]}</p>
+                        <p>{contestData.specs[key]}</p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-        <div className="ticket-purchase-container">
-          <div className="countdown-container">
-            <p>Acest concurs se încheie în:</p>
-            <div className="countdown-wrapper">
-              <div className="countdown-item">
-                <p>{timerState.days}</p>
-                <p>Zile</p>
-              </div>
-              <div className="countdown-item">
-                <p>{timerState.hours}</p>
-                <p>Ore</p>
-              </div>
-              <div className="countdown-item">
-                <p>{timerState.minutes}</p>
-                <p>Minute</p>
-              </div>
-              <div className="countdown-item">
-                <p>{timerState.seconds}</p>
-                <p>Secunde</p>
+                  );
+                })}
               </div>
             </div>
           </div>
-          <div className="tickets-sold-container">
-            <p>Tickete vândute</p>
-            <div className="loading-bar-wrapper">
-              <div>
-                <p>0</p>
-                <p>{contestData.totalTickets}</p>
+          <div className="ticket-purchase-container">
+            <div className="countdown-container">
+              <p>Acest concurs se încheie în:</p>
+              <div className="countdown-wrapper">
+                <div className="countdown-item">
+                  <p>{timerState.days}</p>
+                  <p>Zile</p>
+                </div>
+                <div className="countdown-item">
+                  <p>{timerState.hours}</p>
+                  <p>Ore</p>
+                </div>
+                <div className="countdown-item">
+                  <p>{timerState.minutes}</p>
+                  <p>Minute</p>
+                </div>
+                <div className="countdown-item">
+                  <p>{timerState.seconds}</p>
+                  <p>Secunde</p>
+                </div>
               </div>
-              <div
-                className="loading-bar"
-                style={{
-                  background:
-                    "linear-gradient(90deg, #ec6624 " +
-                    percentage +
-                    "%, #3b2bb1 " +
-                    percentage +
-                    "%) no-repeat",
+            </div>
+            <div className="tickets-sold-container">
+              <p>Tickete vândute</p>
+              <div className="loading-bar-wrapper">
+                <div>
+                  <p>0</p>
+                  <p>{contestData.totalTickets}</p>
+                </div>
+                <div
+                  className="loading-bar"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, #ec6624 " +
+                      percentage +
+                      "%, #3b2bb1 " +
+                      percentage +
+                      "%) no-repeat",
+                  }}
+                ></div>
+                <p>
+                  {contestData.totalTickets - contestData.soldTickets} bilete
+                  rămase!
+                </p>
+              </div>
+            </div>
+            <div className="ticket-price-wrapper">
+              <p>${contestData.pricePerTicket}</p>
+              <p>Per Ticket</p>
+            </div>
+            <div className="ticket-number-wrapper">
+              <button
+                onClick={() => {
+                  if (inputRef.current.value > 1) {
+                    setTicketNumber(ticketNumber - 1);
+                  }
                 }}
-              ></div>
-              <p>
-                {contestData.totalTickets - contestData.soldTickets} bilete
-                rămase!
-              </p>
+              >
+                <i className="fi fi-rr-minus-small"></i>
+              </button>
+              <input
+                type="number"
+                ref={inputRef}
+                onChange={(e) => {
+                  if (e.target.value <= contestData.maxTickets) {
+                    setTicketNumber(e.target.value);
+                  }
+                }}
+                value={ticketNumber}
+              ></input>
+              <button
+                onClick={() => {
+                  if (inputRef.current.value <= contestData.maxTickets) {
+                    setTicketNumber(ticketNumber + 1);
+                  }
+                }}
+              >
+                <i className="fi fi-rr-plus-small"></i>
+              </button>
             </div>
-          </div>
-          <div className="ticket-price-wrapper">
-            <p>${contestData.pricePerTicket}</p>
-            <p>Per Ticket</p>
+            <button className="buy-tickets-button">ADAUGĂ ÎN COȘ</button>
           </div>
         </div>
       </div>
