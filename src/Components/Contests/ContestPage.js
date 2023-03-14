@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import "../../Styles/ContestPage.scss";
 import displacement from "../../Assets/displacement.png";
 import horsepower from "../../Assets/horsepower.png";
@@ -14,14 +14,42 @@ const specAssets = {
   year: ["An", year],
 };
 
+const months = [
+  "Ianuarie",
+  "Februarie",
+  "Martie",
+  "Aprilie",
+  "Mai",
+  "Iunie",
+  "Iulie",
+  "August",
+  "Septembrie",
+  "Octombrie",
+  "Noiembrie",
+  "Decembrie",
+];
+
 export default function ContestPage() {
   const { id } = useParams();
 
-  const [contestData, setContestData] = useState(
-    useSelector((state) => state.contestsData).filter(
-      (contest) => contest._id === id
-    )[0]
-  );
+  const contests = useSelector((state) => state.contestsData);
+
+  const [contestData, setContestData] = useState({
+    _id: "",
+    name: "",
+    overview: "",
+    specs: {},
+    date: new Date("2022-03-25"),
+    totalTickets: 0,
+    soldTickets: 0,
+    pricePerTicket: 0,
+    type: "",
+    featured: true,
+    images: [],
+    maxTickets: 0,
+  });
+
+  const [contestDate, setContestDate] = useState(new Date("2022-03-25"));
 
   const [timerState, setTimer] = useState({
     days: "00",
@@ -30,24 +58,18 @@ export default function ContestPage() {
     seconds: "00",
   });
 
-  const contestDate = new Date(contestData.date);
+  const [percentage, setPercentage] = useState(0);
 
-  const months = [
-    "Ianuarie",
-    "Februarie",
-    "Martie",
-    "Aprilie",
-    "Mai",
-    "Iunie",
-    "Iulie",
-    "August",
-    "Septembrie",
-    "Octombrie",
-    "Noiembrie",
-    "Decembrie",
-  ];
+  useEffect(() => {
+    if (contests) {
+      var contest = contests.filter((contest) => contest._id === id)[0]
+      setContestData(contest);
+      setPercentage((100 * contest.soldTickets) / contest.totalTickets);
+      setContestDate(new Date(contest.date));
+    }
+  }, [contests]);
 
-  function timerCountdown(contestDate, setTimer, timerState){
+  function timerCountdown(contestDate, setTimer, timerState) {
     var _second = 1000;
     var _minute = _second * 60;
     var _hour = _minute * 60;
@@ -76,17 +98,14 @@ export default function ContestPage() {
     });
   }
 
-  useLayoutEffect(() => {
-    timerCountdown(contestDate, setTimer, timerState)
-}, []);
-
   useEffect(() => {
-    setInterval(() => {
-        timerCountdown(contestDate, setTimer, timerState)
-    }, 1000);
-  }, []);
-
-  const percentage = (100 * contestData.soldTickets) / contestData.totalTickets
+    if (contestDate.getFullYear() != "2022") {
+      timerCountdown(contestDate, setTimer, timerState);
+      setInterval(() => {
+        timerCountdown(contestDate, setTimer, timerState);
+      }, 1000);
+    }
+  }, [contestDate]);
 
   return (
     <div className="contest-page">
@@ -157,12 +176,25 @@ export default function ContestPage() {
           <div className="tickets-sold-container">
             <p>Tickete vândute</p>
             <div className="loading-bar-wrapper">
-                <div>
-                    <p>0</p>
-                    <p>{contestData.totalTickets}</p>
-                </div>
-                <div className="loading-bar" style={{background: "linear-gradient(90deg, #ec6624 "+percentage+"%, #3b2bb1 "+percentage+"%) no-repeat"}}></div>
-                <p>{contestData.totalTickets - contestData.soldTickets} bilete rămase!</p>
+              <div>
+                <p>0</p>
+                <p>{contestData.totalTickets}</p>
+              </div>
+              <div
+                className="loading-bar"
+                style={{
+                  background:
+                    "linear-gradient(90deg, #ec6624 " +
+                    percentage +
+                    "%, #3b2bb1 " +
+                    percentage +
+                    "%) no-repeat",
+                }}
+              ></div>
+              <p>
+                {contestData.totalTickets - contestData.soldTickets} bilete
+                rămase!
+              </p>
             </div>
           </div>
           <div className="ticket-price-wrapper">

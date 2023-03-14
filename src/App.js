@@ -4,7 +4,7 @@ import ScrollToTop from "./ScrollTop";
 import Layout from "./Components/Layout";
 import Footer from "./Components/Footer";
 import AnimatedRoutes from "./Components/AnimatedRoutes";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { fetchURL } from "./settings";
 import { useSelector, useDispatch } from "react-redux";
 import { logIn, loadContestsData } from "./actions";
@@ -30,7 +30,7 @@ function App() {
   const dispatch = useDispatch()
   var setupTime = useSelector((state) => state.sessionID);
   var sessionID = useSelector((state) => state.loggedID)
-  useEffect(() => {
+  useLayoutEffect(() => {
     fecthContestsData(dispatch);
     var hours = 1; // to clear the localStorage after 1 hour
     // (if someone want to clear after 8hrs simply change hours=8)

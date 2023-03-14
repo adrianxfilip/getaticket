@@ -134,7 +134,7 @@ function Menu(props) {
             </ul>
           </motion.nav>
         ) : (
-          ""
+          <></>
         )}
       </AnimatePresence>
     </div>
