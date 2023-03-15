@@ -10,7 +10,7 @@ export default function Footer() {
             <Link to="Despre noi">Despre noi</Link>
           </li>
           <li>
-            <Link to="Despre noi">Întrebări frecvente</Link>
+            <Link to="/faq">Întrebări frecvente</Link>
           </li>
           <li>
             <Link to="Despre noi">Contact</Link>

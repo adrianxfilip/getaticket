@@ -75,9 +75,12 @@
   }
 }
 
-@media only screen and (max-width: 1160px) {
+@media only screen and (max-width: 1200px) {
   .contact-section {
     .cards-container {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       .card:first-child {
         margin: 0 0 2em 0;
       }

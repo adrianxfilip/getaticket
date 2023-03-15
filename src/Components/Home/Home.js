@@ -1,7 +1,7 @@
 import "../../Styles/Home.scss";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import CurrentContests from "./CurrentContests";
+import FeaturedContests from "./FeaturedContests";
 import NextDraw from "./NextDraw";
 import HowToPlay from "./HowToPlay";
 import HomeContact from "./HomeContact";
@@ -29,7 +29,7 @@ function Home() {
         </Link>
       </div>
       <NextDraw/>
-      <CurrentContests></CurrentContests>
+      <FeaturedContests></FeaturedContests>
       <HowToPlay></HowToPlay>
       <HomeContact></HomeContact>
     </motion.div>

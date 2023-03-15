@@ -1,6 +1,7 @@
 import "../../Styles/HomeContact.scss";
 import faq from "../../Assets/faq2.png"
 import agent from "../../Assets/support.png"
+import { Link } from "react-router-dom";
 
 export default function HomeContact() {
   return (
@@ -22,7 +23,7 @@ export default function HomeContact() {
             </p>
             <div className="card-button-wrapper">
             <a>WhatsApp</a>
-            <a>Email</a>
+            <Link to="contact">Email</Link>
             </div>
           </div>
         </div>
@@ -35,7 +36,7 @@ export default function HomeContact() {
               întrebarea ta
             </p>
             <div className="card-button-wrapper">
-            <a>Întrebări Frecvente</a>
+            <Link to="faq">Întrebări frecvente</Link>
             </div>
           </div>
         </div>

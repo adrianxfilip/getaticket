@@ -1,7 +1,8 @@
+import { current } from "immer";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import "../../Styles/CurrentContests.scss";
+import "../../Styles/FeaturedContests.scss";
 
 function ContestCard(props) {
   return (
@@ -21,7 +22,7 @@ function ContestCard(props) {
         <div className="info-wrapper second-wrapper">
           <div>
             <i className="fi fi-rr-clock-three"></i>
-            <p className="remaining-time"> {props.remainingTime} zile</p>
+            <p className="remaining-time"> {props.remainingTime} <span>zile</span></p>
           </div>
           <div>
             <i className="fi fi-rs-ticket alt"></i>
@@ -35,55 +36,39 @@ function ContestCard(props) {
   );
 }
 
-export default function CurrentContests() {
-  const [isScrollable, setScroll] = useState(true);
+export default function FeaturedContests() {
   const [contestsNumber, setNumber] = useState(0);
+  const [initialContestIndex, setInitialContestIndex] = useState(0);
+  const [currentContestIndex, setCurrentContestIndex] = useState(0)
   const [featuredContests, setContests] = useState([]);
   const contests = useSelector((state)=>state.contestsData)
 
   useEffect(() => {
     if(contests){
       setContests(contests.filter((contest) => contest.featured === true));
-      setNumber(featuredContests.length)
+      setNumber(featuredContests.length - 1)
+      setInitialContestIndex(window.innerWidth > 1300 ? 2 : window.innerWidth > 800 ? 1 : 0)
+      setCurrentContestIndex(window.innerWidth > 1300 ? 2 : window.innerWidth > 800 ? 1 : 0)
     }
   }, [contests]);
 
-  var previousContest = 0;
-
-  var nextContest =
-    window.innerWidth > 1300 ? 4 : window.innerWidth > 800 ? 3 : 2;
-
-  var carouselWidth =
-    window.innerWidth > 1300 ? 3 : window.innerWidth > 800 ? 2 : 1;
-
-  const handleClickScroll = (actionType) => {
-    var element = "";
-    if (actionType === "decrement" && isScrollable) {
-      element = document.getElementById("C" + previousContest);
-      if (nextContest > carouselWidth + 1) {
-        if (nextContest - previousContest != carouselWidth) {
-          nextContest = nextContest - 1;
-        }
-      }
-      if (previousContest > 1) {
-        previousContest = previousContest - 1;
-      }
-      element.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  const handleScroll = (newIndex) => {
+    if(newIndex < initialContestIndex){
+      newIndex = contestsNumber
     }
-    if (actionType === "increment" && isScrollable) {
-      element = document.getElementById("C" + nextContest);
-      if (nextContest <= contestsNumber) {
-        previousContest = nextContest - carouselWidth;
-      }
-      if (nextContest < 6) {
-        nextContest = nextContest + 1;
-      }
-      element.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    if(newIndex > contestsNumber){
+      newIndex = initialContestIndex
     }
+    setCurrentContestIndex(newIndex)
+    document.getElementById("C" + newIndex).scrollIntoView({
+      inline: "end",
+      behavior: "smooth",
+      block: "nearest",
+    });
   };
 
   return (
-    <div className="current-contest-section">
+    <div className="featured-contests-section">
       <div className="section-title-container">
         <h2>Revendică-ți șansa și câștigă</h2>
         <h1>CONCURSURI ACTIVE</h1>
@@ -96,10 +81,10 @@ export default function CurrentContests() {
         <i
           className="fi fi-rr-arrow-small-left"
           onClick={() => {
-            handleClickScroll("decrement");
+            handleScroll(currentContestIndex - 1);
           }}
         ></i>
-        <div className="current-contests">
+        <div className="featured-contests">
           {featuredContests
             ? featuredContests.map((contest, index) => {
                 let now = new Date();
@@ -107,8 +92,9 @@ export default function CurrentContests() {
                 let difference = then.getTime() - now.getTime();
                 let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
                 return (
+                  
                   <ContestCard
-                    name={contest.name}
+                    name={contest.name + index}
                     price={contest.pricePerTicket}
                     remainingTime={TotalDays}
                     remainingTickets={
@@ -119,7 +105,7 @@ export default function CurrentContests() {
                     contestID={contest._id}
                     key={index}
                   ></ContestCard>
-                  
+
                 );
               })
             : ""}
@@ -127,7 +113,7 @@ export default function CurrentContests() {
         <i
           className="fi fi-rr-arrow-small-right"
           onClick={() => {
-            handleClickScroll("increment");
+            handleScroll(currentContestIndex + 1);
           }}
         ></i>
       </div>

@@ -1,6 +1,6 @@
 .contest-page{
   padding: 10em 0 0 0;
-  background-image: url("../Assets/circle.png");
+  background-image: url("../Assets/inner-hero-shape-2.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -68,13 +68,13 @@
         display: flex;
         flex-wrap: wrap;
         .spec-wrapper {
-          flex-basis: 40%;
           box-sizing: border-box;
           margin: 0 1em 1em 0;
           display: flex;
           align-items: center;
           background-color: #170943;
           padding: 1em;
+          width: 300px;
           img {
             display: inline-block;
             margin: 0 1.5em 0 0;
@@ -84,7 +84,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-
             p:first-child {
               display: inline-block;
               color: #22b868;
@@ -107,7 +106,12 @@
     background-color: #4939c0;
     border-radius: 25px;
     position: relative;
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: 0.3px 1.2px 1.6px rgba(0, 0, 0, 0.017),
+    0.6px 2.7px 3.6px rgba(0, 0, 0, 0.024),
+    1.1px 4.7px 6.3px rgba(0, 0, 0, 0.03), 1.8px 7.5px 10px rgba(0, 0, 0, 0.035),
+    2.7px 11.6px 15.5px rgba(0, 0, 0, 0.04),
+    4.2px 18.1px 24.1px rgba(0, 0, 0, 0.046), 7px 30px 40px rgba(0, 0, 0, 0.053),
+    14px 60px 80px rgba(0, 0, 0, 0.07);
     .countdown-container {
       margin: 0 0 3em 0;
       p {
@@ -116,6 +120,7 @@
       }
       .countdown-wrapper {
         display: flex;
+        justify-content: center;
         .countdown-item {
           margin: 0 1em;
           p {
@@ -232,7 +237,130 @@
       width: fit-content;
       margin: 30px auto -55px;
       cursor: pointer;
-      box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+      box-shadow: 0.3px 1.2px 1.6px rgba(0, 0, 0, 0.017),
+      0.6px 2.7px 3.6px rgba(0, 0, 0, 0.024),
+      1.1px 4.7px 6.3px rgba(0, 0, 0, 0.03), 1.8px 7.5px 10px rgba(0, 0, 0, 0.035),
+      2.7px 11.6px 15.5px rgba(0, 0, 0, 0.04),
+      4.2px 18.1px 24.1px rgba(0, 0, 0, 0.046), 7px 30px 40px rgba(0, 0, 0, 0.053),
+      14px 60px 80px rgba(0, 0, 0, 0.07);
     }
   }
 }
+
+@media only screen and (max-width: 1200px) {
+  .contest-wrapper{
+    width: 900px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .contest-wrapper{
+    width: 700px;
+  }
+  .contest-container{
+    .ticket-purchase-container{
+      .countdown-container{
+        .countdown-wrapper{
+          .countdown-item{
+            margin: 0 .5em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .contest-wrapper{
+    width: 600px;
+  }
+  .contest-container{
+    flex-direction: column;
+    .contest-details-container{
+      margin-right: 0;
+      .contest-specs{
+        .specs-container{
+          .spec-wrapper{
+            width: 280px;
+            box-sizing: border-box;
+          }
+        }
+      }
+    }
+    .ticket-purchase-container{
+      margin: 2em 0;
+      .countdown-container{
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .contest-page{
+    padding: 7em 0 0 0;
+  }
+  .contest-wrapper{
+    width: 400px;
+  }
+  .contest-container{
+    flex-direction: column;
+    padding: 0 1em;
+    .contest-details-container{
+      margin-right: 0;
+      .contest-title-wrapper {
+        h2 {
+          font-size: 14px;
+        }
+        h1 {
+          font-size: 2em;
+        }
+        .draw-date-wrapper {
+          p{
+            font-size: 14px;
+          }
+        }
+      }
+      .contest-description {
+        padding: .5em 0;
+        h2 {
+          font-size: 1.6em;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+      .contest-specs{
+        h2{
+          font-size: 1.6em;
+        }
+        .specs-container{
+          .spec-wrapper{
+            width: 100%;
+            margin: 0 0 1em 0;
+            box-sizing: border-box;
+            img{
+              width: 50px;
+            }
+            .spec-info-wrapper {
+              p:first-child {
+                font-size: 1em;
+              }
+              p:nth-child(2) {
+                font-size: 1.4em;
+              }
+            }
+          }
+        }
+      }
+    }
+    .ticket-purchase-container{
+      margin: 2em 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .contest-wrapper{
+    width: 300px;
+  }
+  }
