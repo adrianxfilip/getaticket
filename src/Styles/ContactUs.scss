@@ -1,0 +1,51 @@
+.contact-us-page {
+  padding: 10em 0 0 0;
+  background-image: url("../Assets/inner-hero-shape-2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  h1, p{
+    color: white;
+    text-align: center;
+  }
+  h1{
+    font-size: 3em;
+    text-transform: uppercase;
+  }
+  p{
+    font-size:1.2em;
+  }
+  
+}
+
+.contact-form-wrapper {
+  margin: 0 auto;
+  padding: 1em 2em;
+  background-image: -webkit-linear-gradient(
+    120deg,
+    rgb(59, 38, 219) 1%,
+    rgb(123, 25, 203) 100%
+  );
+  width: fit-content;
+  p{
+    font-size: 2em;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0 0 0;
+    label{
+      color: white;
+      font-size: 1.1em;
+      margin: 0 0 .5em 0;
+    }
+    input{
+    background-color: rgba(0, 18, 50, 0.102);
+    font-size: 16px;
+    color: #ffffff;
+    border:1px solid #7279cd;
+    border-radius: 10px;
+    padding: 20px;
+    };
+  }
+}

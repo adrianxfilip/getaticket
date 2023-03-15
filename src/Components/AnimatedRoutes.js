@@ -6,6 +6,7 @@ import Profile from "./Profile/Profile";
 import ContestPage from "./Contests/ContestPage";
 import NotFound from "./NotFound";
 import FAQ from "./FAQ/FAQ";
+import ContactUs from "./ContactUs/ContactUs";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -19,6 +20,7 @@ function AnimatedRoutes() {
         <Route path="contests" />
         <Route path="contests/:id" element={<ContestPage/>} />
         <Route path="faq" element={<FAQ />}/>
+        <Route path="/contact" element={<ContactUs />}/>
       </Routes>
     </AnimatePresence>
   );
