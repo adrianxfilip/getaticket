@@ -40,6 +40,12 @@
     border-radius: 10px;
     margin: 0 2em 2em 0;
     box-sizing: border-box;
+    box-shadow: 0.3px 1.2px 1.6px rgba(0, 0, 0, 0.017),
+    0.6px 2.7px 3.6px rgba(0, 0, 0, 0.024),
+    1.1px 4.7px 6.3px rgba(0, 0, 0, 0.03), 1.8px 7.5px 10px rgba(0, 0, 0, 0.035),
+    2.7px 11.6px 15.5px rgba(0, 0, 0, 0.04),
+    4.2px 18.1px 24.1px rgba(0, 0, 0, 0.046), 7px 30px 40px rgba(0, 0, 0, 0.053),
+    14px 60px 80px rgba(0, 0, 0, 0.07);
     .card-number {
       position: absolute;
       top: 90px;

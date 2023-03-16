@@ -13,7 +13,7 @@ export default function Footer() {
             <Link to="/faq">Întrebări frecvente</Link>
           </li>
           <li>
-            <Link to="Despre noi">Contact</Link>
+            <Link to="/contact">Contact</Link>
           </li>
           <li>
             <Link to="Despre noi">Termeni și condiții</Link>

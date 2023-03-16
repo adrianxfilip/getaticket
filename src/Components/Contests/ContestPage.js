@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 import "../../Styles/ContestPage.scss";
 import displacement from "../../Assets/displacement.png";
 import horsepower from "../../Assets/horsepower.png";
@@ -113,7 +114,13 @@ export default function ContestPage() {
   const inputRef = useRef(null);
 
   return (
-    <div className="contest-page">
+    <motion.div
+      className="contest-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <div className="contest-wrapper">
         <ImageCarousel images={contestData.images}></ImageCarousel>
         <div className="contest-container">
@@ -242,6 +249,6 @@ export default function ContestPage() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

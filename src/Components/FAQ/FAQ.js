@@ -39,28 +39,28 @@ function FAQCard(props) {
   const questionControls = useAnimation();
   const [isOpen, setOpen] = useState(false);
 
-  const ref = useRef(null)
+  const ref = useRef(null);
 
-  useEffect(()=>{
-    window.addEventListener('click', (event)=>{
-        if(event.target != ref.current && event.target.className == "faq-card"){
-            questionControls.start("closed")
-            setOpen(false)
-        }
-    })
-  }, [])
+  useEffect(() => {
+    window.addEventListener("click", (event) => {
+      if (event.target != ref.current && event.target.className == "faq-card") {
+        questionControls.start("closed");
+        setOpen(false);
+      }
+    });
+  }, [props]);
 
   return (
     <motion.div
       className="faq-card"
-      id={"CARD"+props.index}
+      id={"CARD" + props.index}
       onClick={() => {
-        if (isOpen){
-            questionControls.start("closed");
-        }else{
-            questionControls.start("open");
+        if (isOpen) {
+          questionControls.start("closed");
+        } else {
+          questionControls.start("open");
         }
-        setOpen(!isOpen)
+        setOpen(!isOpen);
       }}
       ref={ref}
     >
@@ -78,9 +78,14 @@ function FAQCard(props) {
 }
 
 export default function FAQ() {
-
   return (
-    <div className="faq-page">
+    <motion.div
+      className="faq-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <div className="faq-title-wrapper">
         <h2>Tu ai întrebări</h2>
         <h1>NOI AVEM RĂSPUNSURI</h1>
@@ -99,6 +104,6 @@ export default function FAQ() {
           ></FAQCard>
         );
       })}
-    </div>
+    </motion.div>
   );
 }
