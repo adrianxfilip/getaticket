@@ -3,7 +3,7 @@
   background-size: contain;
   background-position: right;
   background-repeat: no-repeat;
-  padding: 10em 0 0;
+  padding: 5em 0 0;
   .container {
     margin: 0 auto;
     width: 1200px;
@@ -32,6 +32,7 @@
   display: flex;
   flex-wrap: wrap;
   .play-card {
+    transition-duration: 0.2s;
     width: fit-content;
     padding: 2em 1em;
     background-size: cover;
@@ -79,6 +80,10 @@
       font-size: 1.1em;
       color: #c4cbf9;
     }
+  }
+  .play-card:hover{
+    transform: scale(1.05);
+    transition-duration: 0.2s;
   }
   .play-card:first-child {
     background-image: url("../Assets/card-bg-1.jpg");

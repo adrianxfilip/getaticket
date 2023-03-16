@@ -7,6 +7,7 @@ import ContestPage from "./Contests/ContestPage";
 import NotFound from "./NotFound";
 import FAQ from "./FAQ/FAQ";
 import ContactUs from "./ContactUs/ContactUs";
+import ActiveContests from "./Contests/ActiveContests";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -17,7 +18,7 @@ function AnimatedRoutes() {
         <Route path="*" element={<NotFound />}/>
         <Route index element={<Home />} />
         <Route path="profile" element={<Profile />} />
-        <Route path="contests" />
+        <Route path="contests" element={<ActiveContests />} />
         <Route path="contests/:id" element={<ContestPage/>} />
         <Route path="faq" element={<FAQ />}/>
         <Route path="/contact" element={<ContactUs />}/>

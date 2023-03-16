@@ -20,7 +20,9 @@ const Layout = () => {
   return (
     <header className={small ? "scroll-header" : ""}>
       <Menu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}></Menu>
+
       <img className="header-logo" src={logo} />
+
       <nav className="desktop-nav">
         <ul>
           <li>

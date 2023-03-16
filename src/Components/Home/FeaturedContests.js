@@ -71,7 +71,7 @@ export default function FeaturedContests() {
     <div className="featured-contests-section">
       <div className="section-title-container">
         <h2>Revendică-ți șansa și câștigă</h2>
-        <h1>CONCURSURI ACTIVE</h1>
+        <h1>CONCURSURI APROAPE DE ÎNCHEIERE</h1>
         <p>
           Participanții cumpără bilete iar câștigătorul se va determina prin
           tragere la sorți
