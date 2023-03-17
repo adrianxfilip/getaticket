@@ -1,6 +1,7 @@
 import "../../Styles/ActiveContests.scss";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function ContestCard(props) {
   return (
@@ -38,28 +39,54 @@ function ContestCard(props) {
 }
 
 export default function ActiveContests() {
-  const contests = useSelector((state) => state.contestsData);
+  const contestsData = useSelector((state) => state.contestsData);
+
+  const [contests, setContests] = useState([{
+    _id: "",
+    name: "",
+    overview: "",
+    specs: {},
+    date: new Date("2022-03-25"),
+    totalTickets: 0,
+    soldTickets: 0,
+    pricePerTicket: 0,
+    type: "",
+    featured: true,
+    images: [],
+    maxTickets: 0,
+  }]);
+
+  useEffect(()=>{
+    if (contestsData) {
+      setContests(contestsData);
+    }
+  }, [contestsData])
 
   return (
     <div className="contests-page">
-      {contests?.map((contest, index) => {
-        let now = new Date();
-        let then = new Date(contest.date);
-        let difference = then.getTime() - now.getTime();
-        let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
-        return (
-          <ContestCard
-            name={contest.name + index}
-            price={contest.pricePerTicket}
-            remainingTime={TotalDays}
-            remainingTickets={contest.totalTickets - contest.soldTickets}
-            src={contest.images[0]}
-            id={"C" + index}
-            contestID={contest._id}
-            key={index}
-          ></ContestCard>
-        );
-      })}
+      <div className="contests-container">
+        <h1>Concursuri</h1>
+        <div className="contests-wrapper">
+          {contests != [] ? contests.map((contest, index) => {
+            let now = new Date();
+            let then = new Date(contest.date);
+            let difference = then.getTime() - now.getTime();
+            let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
+            return (
+              <ContestCard
+                name={contest.name + index}
+                price={contest.pricePerTicket}
+                remainingTime={TotalDays}
+                remainingTickets={contest.totalTickets - contest.soldTickets}
+                src={contest.images[0]}
+                id={"C" + index}
+                contestID={contest._id}
+                key={index}
+              ></ContestCard>
+            );
+          }) : <></>}
+        </div>
+      </div>
     </div>
   );
 }
