@@ -11,4 +11,9 @@ const loadContestsData = (data) => ({
   payload : data
 })
 
-export {logIn, loadContestsData}
+const addToCart = (id, tickets, ppt) => ({
+  type : "ADD_TO_CART",
+  payload : {id : id, tickets : tickets, ppt: ppt}
+})
+
+export {logIn, loadContestsData, addToCart}

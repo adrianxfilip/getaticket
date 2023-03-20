@@ -8,6 +8,9 @@ import horsepower from "../../Assets/horsepower.png";
 import km from "../../Assets/km.png";
 import year from "../../Assets/year.png";
 import ImageCarousel from "./ContestImagesCarousel";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../actions";
+import { useLayoutEffect } from "react";
 
 const specAssets = {
   displacement: ["Capacitate", displacement],
@@ -111,7 +114,19 @@ export default function ContestPage() {
 
   const [ticketNumber, setTicketNumber] = useState(1);
 
+  const cart = useSelector((state => state.cart))
+
+  useEffect(()=>{
+    if(cart[contestData._id]){
+      setTicketNumber(parseInt(cart[contestData._id].tickets))
+    }
+  }, [contestData])
+
   const inputRef = useRef(null);
+
+  const dispatch = useDispatch()
+
+  const [cartUpdated, setUpdate] = useState(false)
 
   return (
     <motion.div
@@ -220,6 +235,7 @@ export default function ContestPage() {
                 onClick={() => {
                   if (inputRef.current.value > 1) {
                     setTicketNumber(ticketNumber - 1);
+                    setUpdate(false)
                   }
                 }}
               >
@@ -228,9 +244,18 @@ export default function ContestPage() {
               <input
                 type="number"
                 ref={inputRef}
+                onBlur={(e)=>{
+                  if(e.target.value < 1){
+                    setTicketNumber(1)
+                  }
+                }}
                 onChange={(e) => {
-                  if (e.target.value <= contestData.maxTickets) {
-                    setTicketNumber(e.target.value);
+                  if (e.target.value <= contestData.maxTickets && e.target.value > -1) {
+                    if(!e.target.value){
+                      setTicketNumber(e.target.value);
+                    }else{
+                      setTicketNumber(parseInt(e.target.value));
+                    }
                   }
                 }}
                 value={ticketNumber}
@@ -239,13 +264,18 @@ export default function ContestPage() {
                 onClick={() => {
                   if (inputRef.current.value <= contestData.maxTickets) {
                     setTicketNumber(ticketNumber + 1);
+                    setUpdate(false)
                   }
                 }}
               >
                 <i className="fi fi-rr-plus-small"></i>
               </button>
             </div>
-            <button className="buy-tickets-button">ADAUGĂ ÎN COȘ</button>
+            <p className="cart-updated-confirmation" style={{display : cartUpdated ? "block" : "none"}}>Coșul tău a fost actualizat cu succes!</p>
+            <button className="buy-tickets-button" onClick={()=>{
+              dispatch(addToCart(contestData._id,ticketNumber, contestData.pricePerTicket))
+              setUpdate(true)
+            }}>ADAUGĂ ÎN COȘ</button>
           </div>
         </div>
       </div>

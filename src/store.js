@@ -9,6 +9,8 @@ const initialState =
     ? {
         loggedID: null,
         sessionID: null,
+        contestsData: null,
+        cart: {}
       }
     : persistedState;
 
@@ -29,6 +31,18 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         contestsData: action.payload,
       };
+    case "ADD_TO_CART":
+      return{
+        ...state,
+        cart : {
+          ...state.cart,
+          [action.payload.id] : {
+            id : action.payload.id,
+            tickets : action.payload.tickets ,
+            ppt : action.payload.ppt
+          }
+        }
+      }
     default:
       return state;
   }
