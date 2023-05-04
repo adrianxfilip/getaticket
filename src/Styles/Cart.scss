@@ -1,123 +1,124 @@
 .cart-page {
-  padding: 10em 0 0 0;
-  background-image: url("../Assets/inner-hero-shape-2.png");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  h1 {
-    font-size: 3.2em;
-    text-align: left;
-    margin: 0.5em 0;
-    color: white;
-    text-align: center;
-  }
-  .cart-container{
-    background-color: #12023e;
-    width: fit-content;
-    padding: 2em;
-    border-radius: 15px;
-    margin: 0 auto;
-    .cart-items-container{
-      .items-container-title-wrapper{
-        display: flex;
-        justify-content: space-between;
-        margin: 0 0 1.5em 0;
-      }
-      h2{
-        color: white;
-        font-size: 2em;
-        margin: 0;
-      }
-      .clear-cart{
-        font-size: 1.2em;
-        font-weight: 500;
-        cursor: pointer;
-        user-select: none;
-      }
-    }
-    .cart-total-container{
-      border-top: 1px solid #867cd5;
-      display: flex;
-      justify-content: space-between;
-      padding: 2em 0 0 0;
-      h2{
-        color: white;
-        margin: 0;
-        font-size: 2.2em;
-      }
-    }
-    .checkout-button{
-      background-image: -webkit-linear-gradient(7deg, #ec1379 0%, #6c0092 100%);
-      border: none;
-      border-radius: 50px;
-      font-size: 1.2em;
-      font-weight: 500;
+    padding: 10em 0 0 0;
+    background-image: url("../Assets/inner-hero-shape-2.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    h1 {
+      font-size: 3.2em;
+      text-align: left;
+      margin: 0.5em 0;
       color: white;
-      font-family: "Josefin Sans", sans-serif;
-      padding: 1em 2em;
-      display: block;
-      width: fit-content;
-      margin: 30px auto -55px;
-      cursor: pointer;
-      box-shadow: 0.3px 1.2px 1.6px rgba(0, 0, 0, 0.017),
-      0.6px 2.7px 3.6px rgba(0, 0, 0, 0.024),
-      1.1px 4.7px 6.3px rgba(0, 0, 0, 0.03), 1.8px 7.5px 10px rgba(0, 0, 0, 0.035),
-      2.7px 11.6px 15.5px rgba(0, 0, 0, 0.04),
-      4.2px 18.1px 24.1px rgba(0, 0, 0, 0.046), 7px 30px 40px rgba(0, 0, 0, 0.053),
-      14px 60px 80px rgba(0, 0, 0, 0.07);
+      text-align: center;
     }
-  }
-
-  .cart-item-card {
-    display: flex;
-    align-items: center;
-    padding: 0 2em 0 0;
-    border-radius: 25px;
-    background-color: #0c002c;
-    margin: 0 0 2em 0;
-    .item-info-wrapper {
-      display: flex;
-      align-items: center;
-      img {
-        width: 13em;
-      }
-      p {
-        color: white;
-        margin: 5px 0;
-        span {
-          color: #24e980;
+    .cart-container{
+      background-color: #12023e;
+      width: fit-content;
+      padding: 2em;
+      border-radius: 15px;
+      margin: 0 auto;
+      .cart-items-container{
+        .items-container-title-wrapper{
+          display: flex;
+          justify-content: space-between;
+          margin: 0 0 1.5em 0;
+        }
+        h2{
+          color: white;
+          font-size: 2em;
+          margin: 0;
+        }
+        .clear-cart{
+          font-size: 1.2em;
+          font-weight: 500;
+          cursor: pointer;
+          user-select: none;
         }
       }
-      .item-name {
-        font-size: 2em;
+      .cart-total-container{
+        border-top: 1px solid #867cd5;
+        display: flex;
+        justify-content: space-between;
+        padding: 2em 0 0 0;
+        h2{
+          color: white;
+          margin: 0;
+          font-size: 2.2em;
+        }
+      }
+      .checkout-button{
+        background-image: -webkit-linear-gradient(7deg, #ec1379 0%, #6c0092 100%);
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2em;
+        font-weight: 500;
+        color: white;
+        font-family: "Josefin Sans", sans-serif;
+        padding: 1em 2em;
+        display: block;
+        width: fit-content;
+        margin: 30px auto -55px;
+        cursor: pointer;
+        box-shadow: 0.3px 1.2px 1.6px rgba(0, 0, 0, 0.017),
+        0.6px 2.7px 3.6px rgba(0, 0, 0, 0.024),
+        1.1px 4.7px 6.3px rgba(0, 0, 0, 0.03), 1.8px 7.5px 10px rgba(0, 0, 0, 0.035),
+        2.7px 11.6px 15.5px rgba(0, 0, 0, 0.04),
+        4.2px 18.1px 24.1px rgba(0, 0, 0, 0.046), 7px 30px 40px rgba(0, 0, 0, 0.053),
+        14px 60px 80px rgba(0, 0, 0, 0.07);
       }
     }
-    .item-actions {
-      margin: 0 0 0 6em;
-      .edit-item {
-        background-image: -webkit-linear-gradient(
-          7deg,
-          rgb(236, 19, 121) 0%,
-          rgb(108, 0, 146) 100%
-        );
-        box-shadow: 0px 7px 7px 0px rgba(163, 15, 110, 0.35);
+  
+    .cart-item-card {
+      display: flex;
+      align-items: center;
+      padding: 0 2em 0 0;
+      border-radius: 25px;
+      background-color: #0c002c;
+      margin: 0 0 2em 0;
+      .item-info-wrapper {
+        display: flex;
+        align-items: center;
+        img {
+          width: 13em;
+        }
+        p {
+          color: white;
+          margin: 5px 0;
+          span {
+            color: #24e980;
+          }
+        }
+        .item-name {
+          font-size: 2em;
+        }
       }
-      .delete-item {
-        background-image: -webkit-linear-gradient(
-          -45deg,
-          rgb(193, 101, 221) 0%,
-          rgb(209, 15, 126) 100%
-        );
-        box-shadow: 0px 7px 7px 0px rgba(209, 15, 126, 0.35);
-      }
-      .edit-item,
-      .delete-item {
-        color: white;
-        border: none;
-        font-size: 1.3em;
-        padding: 20px 20px 10px 20px;
-        clip-path: circle(40%);
-        cursor: pointer;
+      .item-actions {
+        margin: 0 0 0 6em;
+        .edit-item {
+          background-image: -webkit-linear-gradient(
+            7deg,
+            rgb(236, 19, 121) 0%,
+            rgb(108, 0, 146) 100%
+          );
+          box-shadow: 0px 7px 7px 0px rgba(163, 15, 110, 0.35);
+        }
+        .delete-item {
+          background-image: -webkit-linear-gradient(
+            -45deg,
+            rgb(193, 101, 221) 0%,
+            rgb(209, 15, 126) 100%
+          );
+          box-shadow: 0px 7px 7px 0px rgba(209, 15, 126, 0.35);
+        }
+        .edit-item,
+        .delete-item {
+          color: white;
+          border: none;
+          font-size: 1.3em;
+          padding: 20px 20px 10px 20px;
+          clip-path: circle(40%);
+          cursor: pointer;
+        }
       }
     }
   }
-}
+  
