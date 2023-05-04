@@ -1,0 +1,373 @@
+.contest-page{
+  padding: 10em 0 0 0;
+  background-image: url("../Assets/inner-hero-shape-2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.contest-wrapper {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.contest-container {
+  display: flex;
+  .contest-details-container {
+    max-width: 700px;
+    margin: 0 2em 0 0;
+    .contest-title-wrapper {
+      h2 {
+        font-size: 22px;
+        font-weight: 600;
+        color: #ffb200;
+        margin: 0;
+      }
+      h1 {
+        font-weight: 600;
+        font-size: 3em;
+        color: white;
+        margin: 0.5em 0;
+      }
+      .draw-date-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        p {
+          margin: 0;
+          color: #c4cbf9;
+          font-size: 1.1em;
+        }
+        span {
+          color: #ec1379;
+        }
+      }
+    }
+    .contest-description {
+      border-top: 1px solid #1e1659;
+      margin: 1em 0;
+      padding: 1em 0;
+      h2 {
+        color: white;
+        font-weight: 600;
+        font-size: 2em;
+      }
+      p {
+        font-weight: 500;
+        color: #c4cbf9;
+        font-size: 1.1em;
+        line-height: 1.5em;
+      }
+    }
+    .contest-specs {
+      h2 {
+        color: white;
+        font-weight: 600;
+        font-size: 2em;
+      }
+      .specs-container {
+        display: flex;
+        flex-wrap: wrap;
+        .spec-wrapper {
+          box-sizing: border-box;
+          margin: 0 1em 1em 0;
+          display: flex;
+          align-items: center;
+          background-color: #170943;
+          padding: 1em;
+          width: 300px;
+          img {
+            display: inline-block;
+            margin: 0 1.5em 0 0;
+            width: 66px;
+          }
+          .spec-info-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            p:first-child {
+              display: inline-block;
+              color: #22b868;
+              font-size: 1.2em;
+              margin: 0 0 0.6em 0;
+            }
+            p:nth-child(2) {
+              color: white;
+              font-size: 1.6em;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .ticket-purchase-container {
+    height: fit-content;
+    padding: 30px 30px;
+    background-color: #4939c0;
+    border-radius: 25px;
+    position: relative;
+    box-shadow: 0.3px 1.2px 1.6px rgba(0, 0, 0, 0.017),
+    0.6px 2.7px 3.6px rgba(0, 0, 0, 0.024),
+    1.1px 4.7px 6.3px rgba(0, 0, 0, 0.03), 1.8px 7.5px 10px rgba(0, 0, 0, 0.035),
+    2.7px 11.6px 15.5px rgba(0, 0, 0, 0.04),
+    4.2px 18.1px 24.1px rgba(0, 0, 0, 0.046), 7px 30px 40px rgba(0, 0, 0, 0.053),
+    14px 60px 80px rgba(0, 0, 0, 0.07);
+    .countdown-container {
+      margin: 0 0 3em 0;
+      p {
+        color: #c4cbf9;
+        text-align: center;
+      }
+      .countdown-wrapper {
+        display: flex;
+        justify-content: center;
+        .countdown-item {
+          margin: 0 1em;
+          p {
+            text-align: center;
+            margin: 0;
+          }
+          p:first-child {
+            font-size: 2.5em;
+            color: #ec6624;
+            margin: 0 0 10px 0;
+          }
+        }
+      }
+    }
+    .tickets-sold-container {
+      p {
+        color: white;
+        font-weight: 600;
+        font-size: 1.4em;
+        margin: 0;
+      }
+      .loading-bar-wrapper {
+        margin: 1em 0;
+        div {
+          display: flex;
+          justify-content: space-between;
+          p {
+            font-size: 1.1em;
+          }
+        }
+        .loading-bar {
+          height: 0.7em;
+          border-radius: 50px;
+          width: 100%;
+          margin: 1.2em 0;
+        }
+        p {
+          font-size: 1em;
+        }
+      }
+    }
+    .ticket-price-wrapper {
+      margin: 3em 0 2em 0;
+      p:first-child {
+        color: white;
+        font-size: 2.2em;
+        font-weight: 600;
+      }
+      p {
+        color: #c4cbf9;
+        margin: 0;
+        text-align: center;
+      }
+    }
+    .ticket-number-wrapper {
+      width: fit-content;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      border: 1px solid rgba(114, 100, 223, 0.3);
+      border-radius: 50px;
+      padding: 5px;
+      input {
+        text-align: center;
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 2em;
+        width: 2em;
+      }
+      input:focus {
+        outline: none;
+      }
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type="number"] {
+        appearance: textfield;
+        -moz-appearance: textfield;
+      }
+      button {
+        background-color: transparent;
+        border: none;
+        background-color: rgba(114, 100, 223, 0.3);
+        clip-path: circle(40%);
+        cursor: pointer;
+        padding: 0;
+        .fi {
+          display: block;
+          color: white;
+          font-size: 3em;
+          transform: translateY(10px);
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+    .cart-updated-confirmation{
+      text-align: center;
+      margin: 1.5em 0 0 0;
+      font-size: 1.2em;
+      font-weight:500;
+      color: #00ffb8;
+    }
+    .buy-tickets-button {
+      background-image: -webkit-linear-gradient(7deg, #ec1379 0%, #6c0092 100%);
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2em;
+      font-weight: 500;
+      color: white;
+      font-family: "Josefin Sans", sans-serif;
+      padding: 1em 2em;
+      display: block;
+      width: fit-content;
+      margin: 30px auto -55px;
+      cursor: pointer;
+      box-shadow: 0.3px 1.2px 1.6px rgba(0, 0, 0, 0.017),
+      0.6px 2.7px 3.6px rgba(0, 0, 0, 0.024),
+      1.1px 4.7px 6.3px rgba(0, 0, 0, 0.03), 1.8px 7.5px 10px rgba(0, 0, 0, 0.035),
+      2.7px 11.6px 15.5px rgba(0, 0, 0, 0.04),
+      4.2px 18.1px 24.1px rgba(0, 0, 0, 0.046), 7px 30px 40px rgba(0, 0, 0, 0.053),
+      14px 60px 80px rgba(0, 0, 0, 0.07);
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .contest-wrapper{
+    width: 900px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .contest-wrapper{
+    width: 700px;
+  }
+  .contest-container{
+    .ticket-purchase-container{
+      .countdown-container{
+        .countdown-wrapper{
+          .countdown-item{
+            margin: 0 .5em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .contest-wrapper{
+    width: 600px;
+  }
+  .contest-container{
+    flex-direction: column;
+    .contest-details-container{
+      margin-right: 0;
+      .contest-specs{
+        .specs-container{
+          .spec-wrapper{
+            width: 280px;
+            box-sizing: border-box;
+          }
+        }
+      }
+    }
+    .ticket-purchase-container{
+      margin: 2em 0;
+      .countdown-container{
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .contest-page{
+    padding: 7em 0 0 0;
+  }
+  .contest-wrapper{
+    width: 400px;
+  }
+  .contest-container{
+    flex-direction: column;
+    padding: 0 1em;
+    .contest-details-container{
+      margin-right: 0;
+      .contest-title-wrapper {
+        h2 {
+          font-size: 14px;
+        }
+        h1 {
+          font-size: 2em;
+        }
+        .draw-date-wrapper {
+          p{
+            font-size: 14px;
+          }
+        }
+      }
+      .contest-description {
+        padding: .5em 0;
+        h2 {
+          font-size: 1.6em;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+      .contest-specs{
+        h2{
+          font-size: 1.6em;
+        }
+        .specs-container{
+          .spec-wrapper{
+            width: 100%;
+            margin: 0 0 1em 0;
+            box-sizing: border-box;
+            img{
+              width: 50px;
+            }
+            .spec-info-wrapper {
+              p:first-child {
+                font-size: 1em;
+              }
+              p:nth-child(2) {
+                font-size: 1.4em;
+              }
+            }
+          }
+        }
+      }
+    }
+    .ticket-purchase-container{
+      margin: 2em 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .contest-wrapper{
+    width: 300px;
+  }
+  }

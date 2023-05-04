@@ -1,0 +1,41 @@
+body,html {
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0f0232;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+button{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+.fi-rr-spinner{
+  display: block;
+  font-size: 30px;
+  height: 30px;
+  margin: 0 auto;
+  animation-name: spin;
+  animation-duration: 600ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+
+@keyframes spin {
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+.error-message{
+  color: rgb(255, 81, 0) !important;
+}

@@ -1,0 +1,19 @@
+.profile-page{
+    margin:0;
+    padding: 10em 0;
+    background-image: url("../Assets/background.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+@media only screen and (max-width: 800px) {
+    .profile-page{
+        background-size: cover;
+    }
+  }
+
+@media only screen and (max-width: 600px) {
+    .profile-page{
+        padding: 7em 0;
+    }
+  }

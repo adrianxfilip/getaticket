@@ -1,0 +1,183 @@
+.contact-us-page {
+  padding: 10em 0 0 0;
+  background-image: url("../Assets/inner-hero-shape-2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  h1, p{
+    color: white;
+    text-align: center;
+  }
+  h1{
+    font-size: 3em;
+    text-transform: uppercase;
+  }
+  p{
+    font-size:1.2em;
+  }
+  
+}
+
+.contact-form-wrapper {
+  margin: 5em auto 0;
+  padding: 1em 3em 0;
+  border-radius: 15px;
+  background-image: -webkit-linear-gradient(
+    120deg,
+    rgb(59, 38, 219) 1%,
+    rgb(123, 25, 203) 100%
+  );
+  width: fit-content;
+  display: flex;
+  p{
+    font-size: 2em;
+    margin: 0;
+    text-align: left;
+  }
+  form{
+    margin: 2em 2em 0 0;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0;
+    label{
+      color: white;
+      font-size: 1.1em;
+      margin: 0 0 .5em 0;
+    }
+    input, textarea{
+    background-color: rgba(0, 18, 50, 0.102);
+    font-size: 16px;
+    color: #ffffff;
+    border:1px solid #7279cd;
+    border-radius: 10px;
+    padding: 20px;
+    };
+    input:focus, textarea:focus{
+      outline: none;
+      border: 1px solid #ff4800;
+    }
+    input::placeholder, textarea::placeholder{
+      font-family: "Josefin Sans", sans-serif;
+      color: #7279cd;;
+    }
+    textarea{
+      min-width: 400px;
+      min-height: 100px;
+      resize: none;
+    }
+  }
+  button{
+    cursor: pointer;
+    background-image: -webkit-linear-gradient(86deg, rgb(236, 3, 139) 0%, rgb(251, 100, 104) 44%, rgb(251, 185, 54) 100%);
+    border: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: white;
+    width: 100%;
+    padding: 15px 0;
+    border-radius: 25px;
+    box-shadow: 0px 17px 40px 0px rgba(124, 78, 25, 0.35);
+    margin:0;
+  }
+  .info-wrapper{
+    margin: 2.5em 0 0 4em;
+    .info-card{
+      display: flex;
+      margin: 0 0 1em 0;
+      div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+      .info-img{
+        margin: 0 1em 0 0;
+        width: 60px;
+      }
+      p{
+        text-align: left;
+      }
+      p:first-child{
+        font-size: 1.1em;
+        font-weight: 600;
+      }
+      p:nth-child(2){
+        color: #31d7a9;
+        font-size: 1em;
+      }
+    }
+    .contact-img{
+      margin:0 0 -5px 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+.contact-form-wrapper{
+  flex-direction: column;
+  form{
+    margin: 2em auto;
+  }
+  .info-wrapper{
+    margin: 0 auto;
+    .info-card{
+      flex-direction: column;
+      align-items: center;
+      margin: 0 0 2em 0;
+      .info-img{
+        margin: 0 0 .5em 0;
+      }
+      p{
+        text-align: center;
+      }
+    }
+  }
+}
+}
+
+@media only screen and (max-width: 800px) {
+.contact-us-page{
+  h1{
+    font-size:2.5em;
+  }
+  p{
+    font-size:1.2em;
+  }
+}
+}
+
+@media only screen and (max-width: 600px) {
+  .contact-us-page{
+    padding: 7em 0 0 0;
+    h1{
+      font-size:2em;
+    }
+    p{
+      font-size:1em;
+      margin: 0 1em;
+    }
+  }
+  .contact-form-wrapper{
+    padding: 0 1em;
+    p{
+      font-size: 1.5em;
+      margin: 0;
+    }
+    .form-group{
+      textarea{
+        min-width: 300px;
+      };
+    }
+    .info-wrapper{
+      .info-card{
+        .info-img{
+          width: 50px;
+        }
+      }
+      .contact-img{
+        width: 300px;
+      }
+    }
+  }
+}
