@@ -9,6 +9,7 @@ import FAQ from "./FAQ/FAQ";
 import ContactUs from "./ContactUs/ContactUs";
 import ActiveContests from "./Contests/ActiveContests";
 import Cart from "./Cart/Cart";
+import Checkout from "./Checkout/Checkout";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function AnimatedRoutes() {
         <Route path="faq" element={<FAQ />}/>
         <Route path="/contact" element={<ContactUs />}/>
         <Route path="/cart" element={<Cart />}/>
+        <Route path="/checkout" element={<Checkout />}/>
       </Routes>
     </AnimatePresence>
   );

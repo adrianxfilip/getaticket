@@ -45,6 +45,20 @@ const rootReducer = (state = initialState, action) => {
           }
         }
       }
+    case "REMOVE_FROM_CART":
+      var newCart = state.cart
+      delete newCart[action.payload.id]
+      return{
+        ...state,
+        cart : {
+          ...newCart
+        }
+      }
+    case "CLEAR_CART" :
+      return {
+        ...state,
+        cart : {}
+      }
     default:
       return state;
   }
