@@ -28,7 +28,7 @@ function Home() {
           <button>Participă</button>
         </Link>
       </div>
-      <NextDraw/>
+      {/*<NextDraw/>*/}
       <FeaturedContests></FeaturedContests>
       <HowToPlay></HowToPlay>
       <HomeContact></HomeContact>

@@ -183,17 +183,19 @@
     }
   }
   .finish-order{
-    background-image: -webkit-linear-gradient(86deg, rgb(236, 3, 139) 0%, rgb(251, 100, 104) 44%, rgb(251, 185, 54) 100%);
-    color: white;
-    font-size: 25px;
-    cursor: pointer;
-    padding: 15px 25px;
+    background-image: -webkit-linear-gradient(7deg, #ec1379 0%, #6c0092 100%);
     border: none;
-    border-radius: 25px;
-    box-shadow: 0px 17px 40px 0px rgba(124, 78, 25, 0.35);
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: white;
+    font-family: "Josefin Sans", sans-serif;
+    padding: 1em 2em;
     display: block;
-    transform: translateY(40px);
-    margin: 0 auto;
+    width: fit-content;
+    margin: 30px auto -55px;
+    cursor: pointer;
+    box-shadow: 0px 17px 40px 0px rgba(201, 3, 112, 0.35);
 }
 .confirmations-container{
     margin: 2em 0 0 0;

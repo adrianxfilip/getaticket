@@ -19,19 +19,28 @@ function ContestCard(props) {
           </p>
         </div>
         <div className="info-wrapper second-wrapper">
-          <div>
-            <i className="fi fi-rr-clock-three"></i>
-            <p className="remaining-time">
+        {props.remainingTime > 0 ? (
+            <>
               {" "}
-              {props.remainingTime} <span>zile</span>
-            </p>
-          </div>
-          <div>
-            <i className="fi fi-rs-ticket alt"></i>
-            <p className="remaining-tickets">
-              {props.remainingTickets} <span>Rămase</span>
-            </p>
-          </div>
+              <div>
+                <i className="fi fi-rr-clock-three"></i>
+                <p className="remaining-time">
+                  {props.remainingTime <= 1
+                    ? "<" + props.remainingTime
+                    : props.remainingTime}
+                  <span>{props.remainingTime <= 1 ? " zi" : " zile"}</span>
+                </p>
+              </div>
+              <div>
+                <i className="fi fi-rs-ticket alt"></i>
+                <p className="remaining-tickets">
+                  {props.remainingTickets} <span>Rămase</span>
+                </p>
+              </div>
+            </>
+          ) : (
+            <p style={{fontSize : "18px", color :"white", textAlign:"center", margin: "0"}}>Înscrierile la acest cocurs s-au încheiat</p>
+          )}
         </div>
       </div>
     </Link>

@@ -1,6 +1,14 @@
 import "../../Styles/NextDraw.scss";
+import { useSelector } from "react-redux";
 
 export default function NextDraw() {
+
+  const nextContest = useSelector(
+    (state) => state.contestsData
+  );
+
+  console.log(nextContest)
+
   return (
     <div className="next-draw">
       <p>

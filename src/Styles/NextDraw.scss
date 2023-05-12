@@ -6,14 +6,16 @@
   width: fit-content;
   margin: 0 auto;
   padding: 50px 50px;
-  background-color: #0f0233;
-  border: 1px solid rgba(92, 82, 172, 0.4);
+  background-color: #0c002c;
+  border: 2px solid #190b3f;;
+  border-radius: 25px;
   box-shadow: 0.3px 1.2px 1.6px rgba(0, 0, 0, 0.017),
   0.6px 2.7px 3.6px rgba(0, 0, 0, 0.024),
-  1.1px 4.7px 6.3px rgba(0, 0, 0, 0.03), 1.8px 7.5px 10px rgba(0, 0, 0, 0.035),
+  1.1px 4.7px 6.3px rgba(0, 0, 0, 0.03),
+  1.8px 7.5px 10px rgba(0, 0, 0, 0.035),
   2.7px 11.6px 15.5px rgba(0, 0, 0, 0.04),
-  4.2px 18.1px 24.1px rgba(0, 0, 0, 0.046), 7px 30px 40px rgba(0, 0, 0, 0.053),
-  14px 60px 80px rgba(0, 0, 0, 0.07);
+  4.2px 18.1px 24.1px rgba(0, 0, 0, 0.046),
+  7px 30px 40px rgba(0, 0, 0, 0.053), 14px 60px 80px rgba(0, 0, 0, 0.07);
   p {
     display: block;
   }

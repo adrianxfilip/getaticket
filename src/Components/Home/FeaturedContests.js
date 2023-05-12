@@ -20,16 +20,28 @@ function ContestCard(props) {
           </p>
         </div>
         <div className="info-wrapper second-wrapper">
-          <div>
-            <i className="fi fi-rr-clock-three"></i>
-            <p className="remaining-time"> {props.remainingTime} <span>zile</span></p>
-          </div>
-          <div>
-            <i className="fi fi-rs-ticket alt"></i>
-            <p className="remaining-tickets">
-              {props.remainingTickets} <span>Rămase</span>
-            </p>
-          </div>
+          {props.remainingTime > 0 ? (
+            <>
+              {" "}
+              <div>
+                <i className="fi fi-rr-clock-three"></i>
+                <p className="remaining-time">
+                  {props.remainingTime <= 1
+                    ? "<" + props.remainingTime
+                    : props.remainingTime}
+                  <span>{props.remainingTime <= 1 ? " zi" : " zile"}</span>
+                </p>
+              </div>
+              <div>
+                <i className="fi fi-rs-ticket alt"></i>
+                <p className="remaining-tickets">
+                  {props.remainingTickets} <span>Rămase</span>
+                </p>
+              </div>
+            </>
+          ) : (
+            <p style={{fontSize : "18px", color :"white", textAlign:"center", margin: "0"}}>Înscrierile la acest cocurs s-au încheiat</p>
+          )}
         </div>
       </div>
     </Link>
@@ -39,27 +51,31 @@ function ContestCard(props) {
 export default function FeaturedContests() {
   const [contestsNumber, setNumber] = useState(0);
   const [initialContestIndex, setInitialContestIndex] = useState(0);
-  const [currentContestIndex, setCurrentContestIndex] = useState(0)
+  const [currentContestIndex, setCurrentContestIndex] = useState(0);
   const [featuredContests, setContests] = useState([]);
-  const contests = useSelector((state)=>state.contestsData)
+  const contests = useSelector((state) => state.contestsData);
 
   useEffect(() => {
-    if(contests){
+    if (contests) {
       setContests(contests.filter((contest) => contest.featured === true));
-      setNumber(featuredContests.length - 1)
-      setInitialContestIndex(window.innerWidth > 1300 ? 2 : window.innerWidth > 800 ? 1 : 0)
-      setCurrentContestIndex(window.innerWidth > 1300 ? 2 : window.innerWidth > 800 ? 1 : 0)
+      setNumber(featuredContests.length - 1);
+      setInitialContestIndex(
+        window.innerWidth > 1300 ? 2 : window.innerWidth > 800 ? 1 : 0
+      );
+      setCurrentContestIndex(
+        window.innerWidth > 1300 ? 2 : window.innerWidth > 800 ? 1 : 0
+      );
     }
   }, [contests]);
 
   const handleScroll = (newIndex) => {
-    if(newIndex < initialContestIndex){
-      newIndex = contestsNumber
+    if (newIndex < initialContestIndex) {
+      newIndex = contestsNumber;
     }
-    if(newIndex > contestsNumber){
-      newIndex = initialContestIndex
+    if (newIndex > contestsNumber) {
+      newIndex = initialContestIndex;
     }
-    setCurrentContestIndex(newIndex)
+    setCurrentContestIndex(newIndex);
     document.getElementById("C" + newIndex).scrollIntoView({
       inline: "end",
       behavior: "smooth",
@@ -92,7 +108,6 @@ export default function FeaturedContests() {
                 let difference = then.getTime() - now.getTime();
                 let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
                 return (
-                  
                   <ContestCard
                     name={contest.name + index}
                     price={contest.pricePerTicket}
@@ -105,7 +120,6 @@ export default function FeaturedContests() {
                     contestID={contest._id}
                     key={index}
                   ></ContestCard>
-
                 );
               })
             : ""}
