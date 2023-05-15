@@ -4,6 +4,9 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import paysafe from "../../Assets/paysafecard-logo.png";
 import { Link } from "react-router-dom";
+import {fetchURL} from "../../settings"
+import { clearCart } from "../../actions";
+import { useDispatch } from "react-redux";
 
 function LogInPrompt() {
   const id = useSelector((state) => state.loggedID);
@@ -30,10 +33,14 @@ function LogInPrompt() {
 export default function Checkout() {
   const cart = useSelector((state) => state.cart);
 
+  const dispatch = useDispatch()
+
   var totalPrice = Object.values(cart).reduce(
     (item, { ppt, tickets }) => item + ppt * tickets,
     0
   );
+
+  var userID = useSelector((state) => state.loggedID)
 
   const [contact, setContact] = useState({
     email: "",
@@ -41,7 +48,7 @@ export default function Checkout() {
     phoneNumber: "",
     street: "",
     city: "",
-    county: ""
+    county: "",
   });
 
   const [paymentMethod, setPaymentMethod] = useState("card");
@@ -50,6 +57,46 @@ export default function Checkout() {
     legalAge: false,
     terms: false,
   });
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const submitPayment = () => {
+    const regex =
+      /^(\+4|)?(07[0-8]{1}[0-9]{1}|02[0-9]{2}|03[0-9]{2}){1}?(\s|\.|\-)?([0-9]{3}(\s|\.|\-|)){2}$/;
+    if (!regex.test(contact.phoneNumber)) {
+      setErrorMessage("Numărul de telefon este invalid.");
+      return;
+    }
+    if (!confirmations.legalAge) {
+      setErrorMessage("Vă rugăm să confirmați că ați împlinit vârsta de 18 ani!");
+      return;
+    }
+    if (!confirmations.terms) {
+      setErrorMessage("Vă rugăm să confirmați că sunteți de acord cu Termenii și condițiile noastre!");
+      return;
+    }
+    fetch(fetchURL + "/submitPayment", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        contact : contact,
+        userID : userID,
+        cartInfo : cart
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if(res.success == true){
+          dispatch(clearCart());
+          window.location.href = "/order-complete/" + res.ticketID 
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <motion.div
@@ -64,7 +111,13 @@ export default function Checkout() {
           <LogInPrompt />
           <div className="contact-details-wrapper">
             <p>Introdu datele tale de contact.</p>
-            <form>
+            <form
+              id="form1"
+              onSubmit={(e) => {
+                e.preventDefault();
+                submitPayment();
+              }}
+            >
               <div className="form-group">
                 <label>Nume Complet</label>
                 <input
@@ -133,7 +186,7 @@ export default function Checkout() {
               <div className="form-group">
                 <label>Număr de telefon</label>
                 <input
-                  type="number"
+                  type="text"
                   required
                   onChange={(e) =>
                     setContact({
@@ -200,22 +253,38 @@ export default function Checkout() {
             <div
               className="input-group"
               onClick={() => {
-                setConfirmations({ ...confirmations, legalAge: !confirmations.legalAge });
+                setConfirmations({
+                  ...confirmations,
+                  legalAge: !confirmations.legalAge,
+                });
               }}
             >
               <div className="checkbox">
-                <i class="fi fi-br-check checkmark" style={{visibility : confirmations.legalAge ? "visible" : "hidden"}}></i>
+                <i
+                  class="fi fi-br-check checkmark"
+                  style={{
+                    visibility: confirmations.legalAge ? "visible" : "hidden",
+                  }}
+                ></i>
               </div>
               <p className="legal-age"> Confirm că am peste 18 ani.</p>
             </div>
             <div
               className="input-group"
               onClick={() => {
-                setConfirmations({ ...confirmations, terms: !confirmations.terms });
+                setConfirmations({
+                  ...confirmations,
+                  terms: !confirmations.terms,
+                });
               }}
             >
               <div className="checkbox">
-                <i class="fi fi-br-check checkmark" style={{visibility : confirmations.terms ? "visible" : "hidden" }}></i>
+                <i
+                  class="fi fi-br-check checkmark"
+                  style={{
+                    visibility: confirmations.terms ? "visible" : "hidden",
+                  }}
+                ></i>
               </div>
               <p className="accept-terms">
                 Confirm că am citit și sunt de acord cu{" "}
@@ -223,7 +292,10 @@ export default function Checkout() {
               </p>
             </div>
           </div>
-          <button className="finish-order">Finalizează comanda</button>
+          <p className="error-message">{errorMessage}</p>
+          <button type="submit" form="form1" className="finish-order">
+            Finalizează comanda
+          </button>
         </div>
       </div>
     </motion.div>

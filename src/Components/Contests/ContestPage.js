@@ -95,8 +95,6 @@ export default function ContestPage() {
     }, 1000);
   }, [contest]);
 
-
-
   const inputRef = useRef(null);
 
   const dispatch = useDispatch();
@@ -258,7 +256,7 @@ export default function ContestPage() {
                         onChange={(e) => {
                           if (
                             e.target.value <= contest.maxTickets &&
-                            e.target.value > -1
+                            e.target.value > -1  && e.target.value <= contest.totalTickets - contest.soldTickets
                           ) {
                             if (!e.target.value) {
                               setTicketNumber(e.target.value);
