@@ -90,7 +90,7 @@ export default function Checkout() {
       .then((res) => {
         if(res.success == true){
           dispatch(clearCart());
-          window.location.href = "/order-complete/" + res.ticketID 
+          window.location.href = "/order/" + res.ticketID 
         }
       })
       .catch((error) => {

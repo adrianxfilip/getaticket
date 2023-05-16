@@ -144,3 +144,58 @@
     }
   }
 }
+
+@media only screen and (max-width: 800px) {
+  .contact-section {
+    margin: 2em 0 0 0;
+    .section-title-container {
+      margin: 0 0 4em 0;
+      h1,
+      h2,
+      p {
+        text-align: center;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      p {
+        font-size: 1em;
+        margin: 0 1em;
+      }
+    }
+    .cards-container {
+      .card {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 200px;
+        img {
+          margin: 0 0 2em 0;
+          max-width: 75px;
+        }
+        p {
+          text-align: center;
+        }
+        .card-button-wrapper{
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            a {
+              margin: 0 0 .5em 0;
+            }
+        }
+        p:first-child {
+          font-size: 1.4em;
+        }
+        p:nth-child(2) {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
+

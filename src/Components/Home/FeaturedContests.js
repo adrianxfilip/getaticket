@@ -20,7 +20,7 @@ function ContestCard(props) {
           </p>
         </div>
         <div className="info-wrapper second-wrapper">
-          {props.remainingTime > 0 ? (
+          {props.remainingTime > 0 && props.remainingTickets > 0 ? (
             <>
               {" "}
               <div>

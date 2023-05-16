@@ -182,3 +182,25 @@
   }
 }
 
+
+@media only screen and (max-width: 600px) {
+  .signin-form{
+    padding: 2em 1em;
+    h1{
+      font-size: 1.5em;
+    }
+    form{
+      width: 15em;
+      margin: 0;
+      .form-group{
+        label{
+          font-size: 1em;
+        }
+        input::placeholder{
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
+

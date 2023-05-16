@@ -249,3 +249,77 @@ a:last-child{
     }
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .featured-contests-container {
+    background-size: cover;
+    .fi-rr-arrow-small-left,
+    .fi-rr-arrow-small-right {
+      cursor: pointer;
+      display: block;
+      color: white;
+      width: 50px;
+      height: 50px;
+      clip-path: circle(40%);
+      font-size: 2.5em;
+      background-image: -webkit-linear-gradient(7deg, #ec1379 0%, #6c0092 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .fi-rr-arrow-small-left::before {
+      transform: translateX(-1px);
+    }
+    .fi-rr-arrow-small-right::before {
+      transform: translateX(1px);
+    }
+  }
+  .featured-contests-section {
+    margin: 5em 0 0 0;
+    .section-title-container {
+      margin: 0 1em 2em;
+      h1,
+      h2,
+      p {
+        text-align: center;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      p {
+        font-size: 1em;
+        margin: 0 1em;
+      }
+    }
+  }
+  .featured-contests {
+    max-width: 18em;
+  }
+  .contest-card {
+    width: 18em;
+    .image-wrapper {
+      width: 18em;
+      img{
+        max-width: 20em;
+      }
+    }
+    .info-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .prize-name {
+        font-size: 1.2em;
+      }
+      .ticket-price {
+        font-size: 1.5em;
+      }
+      .remaining-time,
+      .remaining-tickets {
+        font-size: 1em;
+      }
+    }
+  }
+}

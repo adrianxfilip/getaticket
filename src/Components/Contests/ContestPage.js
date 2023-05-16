@@ -157,7 +157,7 @@ export default function ContestPage() {
               </div>
               <div className="ticket-purchase-container">
                 <div className="countdown-container">
-                  {remainingTime < 1 || timerState.finished == true? (
+                  {remainingTime < 1 || timerState.finished == true || contest.totalTickets - contest.soldTickets <= 0? (
                     <>
                       <p className="buy-period-over">
                         Înscrierile la acest concurs s-au încheiat.
@@ -229,7 +229,7 @@ export default function ContestPage() {
                   <p>${contest.pricePerTicket}</p>
                   <p>Per Ticket</p>
                 </div>
-                {remainingTime < 1 || timerState.finished == true? (
+                {remainingTime < 1 || timerState.finished == true  || contest.totalTickets - contest.soldTickets <= 0? (
                   <></>
                 ) : (
                   <>

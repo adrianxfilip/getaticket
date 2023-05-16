@@ -142,3 +142,40 @@
     }
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .how-to-play-section {
+    padding: 3em 0 0 0;
+    box-sizing: border-box;
+    .container {
+      margin: 0 auto;
+      width: fit-content;
+    }
+    .section-title-container {
+      margin: 0 0 4em 0;
+      h1,
+      h2,
+      p {
+        text-align: center;
+      }
+      h1{
+        font-size: 2em;
+      }
+      h2{
+        font-size: 1.2em;
+      }
+      p{
+        font-size: 1em;
+        margin: 0 1em;
+      }
+    }
+  }
+  .cards-container {
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    .play-card {
+      margin: 0 0 2em 0;
+    }
+  }
+}

@@ -5,7 +5,7 @@
   background-size: 100%;
 }
 
-.error-message{
+.error-message {
   text-align: center;
   color: red;
   font-size: 1.2em;
@@ -66,7 +66,6 @@
   border-radius: 25px;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
   width: fit-content;
   .contact-details-wrapper {
     box-shadow: 0.3px 1.2px 1.6px rgba(0, 0, 0, 0.017),
@@ -155,40 +154,40 @@
     .total-price {
       font-size: 25px;
       border-top: 1px solid #6472d99a;
-        padding: 20px 0;
-    span{
+      padding: 20px 0;
+      span {
         display: block;
         margin: 10px 0 0 0;
-    }
-    }
-  }
-  .payment-method{
-    div{
-        display: flex;
-        button{
-            background: none;
-            padding: 10px 25px;
-            border-radius: 10px;
-            border: 1px solid;
-            cursor: pointer;
-        }
-        .credit-card{
-            color: white;
-            .fi{
-                margin: 0;
-                display: block;
-                font-size: 35px;
-            }
-            margin: 0 15px 0 0;
-        }
-        .paysafe{
-            img{
-                height: 30px;
-            }
-        }
+      }
     }
   }
-  .finish-order{
+  .payment-method {
+    div {
+      display: flex;
+      button {
+        background: none;
+        padding: 10px 25px;
+        border-radius: 10px;
+        border: 1px solid;
+        cursor: pointer;
+      }
+      .credit-card {
+        color: white;
+        .fi {
+          margin: 0;
+          display: block;
+          font-size: 35px;
+        }
+        margin: 0 15px 0 0;
+      }
+      .paysafe {
+        img {
+          height: 30px;
+        }
+      }
+    }
+  }
+  .finish-order {
     background-image: -webkit-linear-gradient(7deg, #ec1379 0%, #6c0092 100%);
     border: none;
     border-radius: 50px;
@@ -202,38 +201,272 @@
     margin: 30px auto -55px;
     cursor: pointer;
     box-shadow: 0px 17px 40px 0px rgba(201, 3, 112, 0.35);
-}
-.confirmations-container{
+  }
+  .confirmations-container {
     margin: 2em 0 0 0;
-    .input-group{
+    .input-group {
+      display: flex;
+      margin: 0;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      p {
+        color: white;
+        font-size: 1.2em;
+        font-weight: 400;
+        margin: 0;
+      }
+      .checkbox {
+        margin: 0 15px 0 0;
+        border: 1px solid white;
+        height: fit-content;
+        padding: 7px;
+        border-radius: 5px;
+        height: 10px;
+        width: 10px;
+        .fi {
+          color: greenyellow;
+          display: block;
+          transform: translate(-3px, -2px);
+        }
+      }
+    }
+    .input-group:first-child {
+      margin: 0 0 25px 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 1350px) {
+  .checkout-container {
+    flex-direction: column;
+    .total-wrapper {
+      padding: 1em 3em;
+      margin: 2em 0 00;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .already-registered-prompt {
+    p {
+      font-size: 1.2em;
+      span {
+        margin: 10px 0 0 0;
+      }
+    }
+    .fi {
+      font-size: 1em;
+    }
+    a {
+      p {
+        font-size: 1.2em;
+      }
+    }
+  }
+  .checkout-container {
+    margin: 0 2em;
+    padding: 2em 2em 4em;
+    .contact-details-wrapper {
+      p {
+        color: white;
+        font-size: 1.5em;
+      }
+      form {
+        input {
+          font-size: 1em;
+        }
+        label {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .checkout-page{
+    display: flex;
+    justify-content: center;
+    padding: 9em 0 0 0;
+  }
+  .already-registered-prompt {
+    flex-direction: column;
+    margin: 0 0 1em 0;
+    p {
+      text-align: center;
+      span {
+        font-size: 0.7em;
+        margin:  5px 0 0 0;
+      }
+    }
+    a {
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      p {
+        font-size: 1em;
+      }
+    }
+    .fi {
+      font-size: .8em;
+      padding: 15px 15px 12px 15px;
+      margin: 0 .5em 0 0;
+    }
+    a {
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      p {
+        font-size: 1em;
+      }
+    }
+  }
+  .checkout-container {
+    margin: 0 .5em;
+    padding: .5em .5em 3em .5em;
+    .contact-details-wrapper {
+      padding: 2em 1em;
+      p {
+        color: white;
+        font-size: 1em;
+        margin: 0 0 2em 0;
+        text-align: center;
+      }
+      form {
+        .form-group {
+          margin: 0 0 30px 0;
+        }
+        .form-group:last-child{
+          margin: 0;
+        }
+        input {
+          padding: 15px;
+          border: 1px solid #6472d99a;
+          font-size: 1em;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        label {
+          display: block;
+          color: white;
+          font-size: .8em;
+          margin: 0 0 10px 0;
+        }
+      }
+    }
+    .total-wrapper {
+      padding: 2em 1em;
+      .card-name {
+        font-size: 1.5em;
+        margin: 0;
+      }
+      .ticket-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: .5em 0;
+        .ticket {
+          font-size: 1.1em;
+          margin: 0;
+          span {
+            color: #24e980;
+            font-size: 0.8em;
+          }
+        }
+        .ticket-price {
+          font-size: 1.1em;
+        }
+      }
+      .total-price {
+        font-size: 20px;
+        margin: 0;
+        span {
+          display: block;
+          margin: 10px 0 0 0;
+        }
+      }
+    }
+    .payment-method {
+      div {
+        display: flex;
+        button {
+          background: none;
+          padding: 10px 20px;
+          border-radius: 10px;
+          border: 1px solid;
+          cursor: pointer;
+        }
+        .credit-card {
+          color: white;
+          .fi {
+            margin: 0;
+            display: block;
+            font-size: 25px;
+          }
+          margin: 0 15px 0 0;
+        }
+        .paysafe {
+          img {
+            height: 20px;
+          }
+        }
+      }
+    }
+    .finish-order {
+      background-image: -webkit-linear-gradient(7deg, #ec1379 0%, #6c0092 100%);
+      border: none;
+      border-radius: 50px;
+      font-size: 1em;
+      font-weight: 500;
+      color: white;
+      font-family: "Josefin Sans", sans-serif;
+      padding: 1em 2em;
+      display: block;
+      width: fit-content;
+      margin: 30px auto -55px;
+      cursor: pointer;
+    }
+    .confirmations-container {
+      margin: 2em 0 0 0;
+      .input-group {
         display: flex;
         margin: 0;
         align-items: center;
         cursor: pointer;
         user-select: none;
-        p{
-            color: white;
-            font-size: 1.2em;
-            font-weight: 400;
-            margin: 0;
+        p {
+          color: white;
+          font-size:.9em;
+          font-weight: 400;
+          margin: 0;
         }
-        .checkbox{
-            margin: 0 15px 0 0;
-            border: 1px solid white;
-            height: fit-content;
-            padding: 7px;
-            border-radius: 5px;
-            height: 10px;
-            width: 10px;
-            .fi{
-                color: greenyellow;
-                display: block;
-                transform: translate(-3px, -2px);
-            }
+        .checkbox {
+          margin: 0 15px 0 0;
+          border: 1px solid white;
+          height: fit-content;
+          padding: 7px;
+          border-radius: 5px;
+          height: 7px;
+          width: 7px;
+          .fi {
+            color: greenyellow;
+            display: block;
+            transform: translate(-1px, -2px);
+            font-size: 10px;
+          }
         }
-    }
-    .input-group:first-child{
+      }
+      .input-group:first-child {
         margin: 0 0 25px 0;
+      }
     }
-}
+  }
 }

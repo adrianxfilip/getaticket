@@ -367,6 +367,10 @@
 
 @media only screen and (max-width: 400px) {
   .contest-wrapper{
-    width: 300px;
+    width: none;
+    max-width: 330px;
+  }
+  .contest-container{
+    padding: 0;
   }
   }
