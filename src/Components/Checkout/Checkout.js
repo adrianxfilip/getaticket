@@ -186,7 +186,7 @@ export default function Checkout() {
               <div className="form-group">
                 <label>Număr de telefon</label>
                 <input
-                  type="text"
+                  type="number"
                   required
                   onChange={(e) =>
                     setContact({

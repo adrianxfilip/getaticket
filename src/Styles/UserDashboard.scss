@@ -1,54 +1,290 @@
-.profile-page{
+.profile-page {
   padding: 10em 0 0 0;
   background-image: url("../Assets/inner-hero-shape-2.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-size: 100%;
+  min-height: 100vh;
 }
 
-.dashboard-page{
+.dashboard-page {
+  margin: 0 auto;
+  width: fit-content;
   display: flex;
-  .dashboard-menu{
-    background-image: -webkit-linear-gradient(120deg, #12023e 1%, #492f8f 100%);
+  .user-id-wrapper {
+    text-align: center;
+    padding: 4em;
+    background-image: -webkit-linear-gradient(
+      120deg,
+      rgb(123, 25, 203) 0%,
+      rgb(59, 38, 219) 99%
+    );
+    border-radius: 20px;
+    .user-name {
+      font-size: 2em;
+      color: white;
+      text-transform: uppercase;
+      margin: 0 0 1em 0;
+    }
+    .show-id-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      color: #24e980;
+      margin: 0;
+    }
+    .user-id {
+      color: #24e980;
+      font-size: 1.2em;
+      margin: 0;
+    }
+  }
+  .dashboard-menu {
+    background-image: -webkit-linear-gradient(
+      120deg,
+      rgb(59, 38, 219) 1%,
+      rgb(123, 25, 203) 100%
+    );
     width: 25em;
     border-radius: 10px;
     box-sizing: border-box;
-    ul{
+    ul {
       list-style-type: none;
-      padding: .5em 0;
-      li{
+      padding: 0.5em 0;
+      margin: 1em 0 0 0;
+      li {
         color: white;
         padding: 1em 0 1em 1em;
         cursor: pointer;
-        margin: .5em 0;
+        margin: 0.5em 0;
         font-size: 1.2em;
       }
-      .active{
-        background: linear-gradient(to right, #ad1f83, rgba(108, 0, 146, 0.25), rgba(59, 38, 219, 0.001));
+      .active {
+        background: linear-gradient(
+          to right,
+          #ad1f83,
+          rgba(108, 0, 146, 0.25),
+          rgba(59, 38, 219, 0.001)
+        );
         border-left: 2px solid #ff002a;
       }
     }
   }
 }
 
-.user-tickets-container{
+.user-tickets-container {
+  margin: 0 0 0 1em;
+  background-color: #5a4bcc;
+  color: white;
+  padding: 2em;
+  border-radius: 10px;
+  h2 {
+    font-size: 2em;
+    margin: 0;
+  }
+  table {
+    width: 40em;
+    margin: 2em 0 0 0;
+    th {
+      text-align: left;
+      margin: 0 4em 0 0;
+      padding: 10px;
+    }
+    tbody {
+      tr {
+      }
+      td {
+        border: none;
+        padding: 10px;
+        border-bottom: 1px solid rgb(83, 61, 179);
+        border-top: 1px solid rgb(83, 61, 179);
+        span {
+          color: #24e980;
+        }
+      }
+      a {
+        color: #fd7e14;
+      }
+    }
+  }
+}
 
+.personal-info-container {
+  margin: 0 0 0 1em;
+  .info-card {
+    width: 40em;
+    background-color: #5a4bcc;
+    padding: 2em;
+    border-radius: 10px;
+    margin: 0 0 1em 0;
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h2 {
+      color: white;
+      margin: 0;
+    }
+    .edit-info-btn {
+      background-color: transparent;
+      border: none;
+      color: white;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 1.1em;
+      color:white;
+      .fi {
+        margin: 0 0.5em 0 0;
+        display: inline-block;
+        transform: translateY(3px);
+        font-size: 1.5em;
+        color: white;
+      }
+    }
+    form {
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+
+      margin: 2em 0 0 0;
+      .form-group {
+        margin: 0 0 30px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      input {
+        padding: 20px;
+        border: 1px solid #6472d99a;
+        background: none;
+        color: white;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 1.1em;
+        display: block;
+        outline: none;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      input::placeholder {
+        color: #c8d0fcc9;
+      }
+      input:focus {
+        border: 1px solid #fd7e14;
+      }
+      label {
+        display: block;
+        color: white;
+        font-size: 1.2em;
+        margin: 0 0 10px 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .dashboard-page{
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+    padding: 0 2em;
+    box-sizing: border-box;
+    .dashboard-menu{
+      width: 100%;
+      margin: 0;
+    }
+  }
+  .user-tickets-container{
+    margin: 1em 0 0 0;
+  }
+  .personal-info-container{
+    margin: 1em 0 0 0;
+    width: 100%;
+    .info-card{
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
 }
 
 @media only screen and (max-width: 800px) {
-    .profile-page{
-        background-size: cover;
+  .dashboard-page{
+    flex-direction: column;
+    .dashboard-menu{
+      width: 100%;
+      margin: 0;
     }
   }
+  .user-tickets-container{
+    table{
+      width: 100%;
+    }
+  }
+  .personal-info-container{
+   .info-card{
+    width: 100%;
+    div{
+      flex-direction: column;
+      align-items: flex-start;
+      h2{
+        margin: 0 0 1em 0;
+      }
+    }
+   }
+  }
+}
 
-@media only screen and (max-width: 600px) {
-    .profile-page{
-        padding: 7em 0;
+@media only screen and (max-width: 500px) {
+  .dashboard-page{
+    padding: 0 1em;
+    .user-id-wrapper {
+      text-align: center;
+      padding: 3em;
+      .user-name {
+        font-size: 1.2em;
+      }
+      .show-id-btn{
+        font-size: 1em;
+      }
+      .user-id {
+        font-size: .8em;
+      }
+    }
+    .dashboard-menu {
+      ul {
+        li {
+          font-size: .8em;
+          margin: .5em 0;
+        }
+      }
     }
   }
-
-  @media only screen and (max-width: 500px) {
-    .profile-page{
-        padding: 7em 0;
+  .user-tickets-container{
+    font-size: 12px;
+    padding: 2em 1em;
+    table{
+      width: 100%;
     }
   }
+  .personal-info-container{
+   .info-card{
+    width: 100%;
+    font-size: 12px;
+    .form-group{
+      margin: 0 0 1.2em 0 !important;
+    }
+   }
+  }
+}

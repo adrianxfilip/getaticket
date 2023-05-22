@@ -33,12 +33,12 @@ function UserTickets() {
       transition={{ duration: 0.2 }}
       className="user-tickets-container"
     >
-      <p>Tickete</p>
-      <table>
+      <h2>Tickete</h2>
+      <table cellSpacing={0} cellPadding={0}>
         <thead>
           <tr>
             <th>Data Extragerii</th>
-            <th>Nr. Comanda</th>
+            <th>Nr. Ticket</th>
             <th>Concurs</th>
           </tr>
         </thead>
@@ -49,7 +49,7 @@ function UserTickets() {
               <tr key={index}>
                 <td>{date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear()}</td>
                 <td>
-                  {contest.ticketID} <br /> <span>{contest.ticketEntries} {contest.ticketEntries > 1 ? "tickete" : "ticket"}</span>
+                  {contest.ticketID} <br /> <span>{"(" + contest.ticketEntries} {contest.ticketEntries > 1 ? "tickete)" : "ticket)"}</span>
                 </td>
                 <td>
                   <Link to={"/contests/" + contest.contestID}>

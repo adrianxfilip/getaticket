@@ -6,6 +6,8 @@ import { fetchURL } from "../../settings";
 import { useEffect, useState } from "react";
 import { loadUserData } from "../../actions";
 import UserTickets from "./UserTickets";
+import PersonalInfo from "./PersonalInfo";
+import { logIn } from "../../actions";
 
 function UserDashboard() {
   const dispatch = useDispatch();
@@ -39,11 +41,14 @@ function UserDashboard() {
     getData();
   }, []);
 
-  const [activeDashboard, setDashboard] = useState("userTickets");
+  const [activeDashboard, setDashboard] = useState("personalInfo");
 
   const dashboardPanels = {
-    userTickets : <UserTickets />
-  }
+    userTickets: <UserTickets />,
+    personalInfo: <PersonalInfo />,
+  };
+
+  const [showID, setShowID] = useState(false)
 
   if (userData) {
     return (
@@ -54,26 +59,32 @@ function UserDashboard() {
         transition={{ duration: 0.2 }}
         className="dashboard-page"
       >
-        <div className="dashboard-menu">
-          <ul>
-            <li
-              className={activeDashboard == "userTickets" ? "active" : ""}
-              onClick={() => {
-                setDashboard("userTickets");
-              }}
-            >
-              Ticketele Mele
-            </li>
-            <li
-              className={activeDashboard == "personalInfo" ? "active" : ""}
-              onClick={() => {
-                setDashboard("personalInfo");
-              }}
-            >
-              Informații personale
-            </li>
-            <li>Deconectare</li>
-          </ul>
+        <div>
+          <div className="user-id-wrapper">
+            <p className="user-name">{userData.firstName + " " + userData.secondName}</p>
+            {showID ? <p className="user-id">{id}</p> : <p className="show-id-btn" onClick={()=>{setShowID(true)}}>Vezi ID</p>}
+          </div>
+          <div className="dashboard-menu">
+            <ul>
+              <li
+                className={activeDashboard == "personalInfo" ? "active" : ""}
+                onClick={() => {
+                  setDashboard("personalInfo");
+                }}
+              >
+                Informații personale
+              </li>
+              <li
+                className={activeDashboard == "userTickets" ? "active" : ""}
+                onClick={() => {
+                  setDashboard("userTickets");
+                }}
+              >
+                Ticketele Mele
+              </li>
+              <li onClick={()=>{dispatch(logIn("", ""))}}>Deconectare</li>
+            </ul>
+          </div>
         </div>
         {dashboardPanels[activeDashboard]}
       </motion.div>
