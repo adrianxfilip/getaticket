@@ -210,7 +210,7 @@ function SigninForm(props) {
         }
         if (res.success === true) {
           var now = new Date().getTime();
-          dispatch(logIn(res.token, now))
+          dispatch(logIn(res.token, now, res.userData, res.userContests))
         }
       })
       .catch((error) => {

@@ -1,0 +1,54 @@
+.profile-page{
+  padding: 10em 0 0 0;
+  background-image: url("../Assets/inner-hero-shape-2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.dashboard-page{
+  display: flex;
+  .dashboard-menu{
+    background-image: -webkit-linear-gradient(120deg, #12023e 1%, #492f8f 100%);
+    width: 25em;
+    border-radius: 10px;
+    box-sizing: border-box;
+    ul{
+      list-style-type: none;
+      padding: .5em 0;
+      li{
+        color: white;
+        padding: 1em 0 1em 1em;
+        cursor: pointer;
+        margin: .5em 0;
+        font-size: 1.2em;
+      }
+      .active{
+        background: linear-gradient(to right, #ad1f83, rgba(108, 0, 146, 0.25), rgba(59, 38, 219, 0.001));
+        border-left: 2px solid #ff002a;
+      }
+    }
+  }
+}
+
+.user-tickets-container{
+
+}
+
+@media only screen and (max-width: 800px) {
+    .profile-page{
+        background-size: cover;
+    }
+  }
+
+@media only screen and (max-width: 600px) {
+    .profile-page{
+        padding: 7em 0;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .profile-page{
+        padding: 7em 0;
+    }
+  }

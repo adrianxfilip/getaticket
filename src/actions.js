@@ -1,8 +1,10 @@
-const logIn = (loggedID, sessionID) => ({
+const logIn = (loggedID, sessionID, userData, userContests) => ({
     type: "LOG_IN",
     payload: {
         loggedID: loggedID,
-        sessionID : sessionID
+        sessionID : sessionID,
+        userData : userData,
+        userContests : userContests
     }
   })
 
@@ -11,9 +13,9 @@ const loadContestsData = (data) => ({
   payload : data
 })
 
-const addToCart = (id, tickets, ppt, image, name) => ({
+const addToCart = (id, tickets, ppt, image, name, drawDate) => ({
   type : "ADD_TO_CART",
-  payload : {id : id, tickets : tickets, ppt: ppt, image:image, name:name}
+  payload : {id : id, tickets : tickets, ppt: ppt, image:image, name:name, drawDate : drawDate}
 })
 
 const removeFromCart = (id) => ({
@@ -25,4 +27,12 @@ const clearCart = () => ({
   type : "CLEAR_CART"
 })
 
-export {logIn, loadContestsData, addToCart, clearCart, removeFromCart}
+const loadUserData = (data, contests) => ({
+  type: "LOAD_USER_DATA",
+  payload : {
+    data : data,
+    contests : contests
+  }
+})
+
+export {logIn, loadContestsData, addToCart, clearCart, removeFromCart, loadUserData}

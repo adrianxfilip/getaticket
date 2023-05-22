@@ -9,6 +9,8 @@ const initialState =
     ? {
         loggedID: null,
         sessionID: null,
+        userData : null,
+        userContests : null,
         contestsData: null,
         cart: {}
       }
@@ -25,6 +27,8 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         sessionID: action.payload.sessionID,
         loggedID: action.payload.loggedID,
+        userData : action.payload.userData,
+        userContests : action.payload.userContests
       };
     case "LOAD_CONTESTS_DATA":
       return {
@@ -41,7 +45,8 @@ const rootReducer = (state = initialState, action) => {
             tickets : action.payload.tickets ,
             ppt : action.payload.ppt,
             image : action.payload.image,
-            name : action.payload.name
+            name : action.payload.name,
+            drawDate : action.payload.drawDate
           }
         }
       }
@@ -58,6 +63,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         cart : {}
+      }
+    case "LOAD_USER_DATA":
+      return {
+        ...state,
+        userContests : action.payload.contests,
+        userData : action.payload.data
       }
     default:
       return state;

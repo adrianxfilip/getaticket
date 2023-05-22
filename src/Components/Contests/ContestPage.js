@@ -293,7 +293,8 @@ export default function ContestPage() {
                             ticketNumber,
                             contest.pricePerTicket,
                             contest.images[0],
-                            contest.name
+                            contest.name,
+                            contest.drawDate
                           )
                         );
                         setUpdate(true);

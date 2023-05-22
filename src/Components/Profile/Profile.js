@@ -1,5 +1,6 @@
-import "../../Styles/Profile.scss";
+import "../../Styles/UserDashboard.scss";
 import Signin from "./Signin";
+import UserDashboard from "./Dashboard";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -16,7 +17,7 @@ function Profile() {
       transition={{ duration: 0.2 }}
       className="profile-page"
     >
-      {token ? <h1 style={{color : "white", textAlign:"center"}}>LOGGED IN!!!</h1> : <Signin></Signin>}
+      {token ? <UserDashboard /> : <Signin></Signin>}
     </motion.div>
   );
 }
