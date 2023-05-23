@@ -107,6 +107,10 @@
   }
   .second-wrapper {
     padding: 1em 1.5em;
+    p{
+      font-size: 1.2em !important;
+      text-align: center !important;
+    }
   }
   .info-wrapper {
     display: flex;
@@ -128,6 +132,9 @@
         font-weight: 400;
         font-size: 0.6em !important;
       }
+    }
+    .giveaway{
+      font-size: 1.5em;
     }
     .remaining-time,
     .remaining-tickets {
@@ -315,6 +322,9 @@ a:last-child{
       }
       .ticket-price {
         font-size: 1.5em;
+      }
+      .giveaway{
+        font-size: 1.2em;
       }
       .remaining-time,
       .remaining-tickets {

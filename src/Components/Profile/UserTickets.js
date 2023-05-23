@@ -43,7 +43,7 @@ function UserTickets() {
           </tr>
         </thead>
         <tbody>
-          {userContests.map((contest, index) => {
+          {userContests.slice(0).reverse().map((contest, index) => {
             var date = new Date(contest.drawDate);
             return (
               <tr key={index}>

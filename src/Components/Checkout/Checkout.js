@@ -41,14 +41,16 @@ export default function Checkout() {
   );
 
   var userID = useSelector((state) => state.loggedID)
+  var userData = useSelector((state) => state.userData)
 
   const [contact, setContact] = useState({
-    email: "",
-    fullName: "",
-    phoneNumber: "",
-    street: "",
-    city: "",
-    county: "",
+    email: userData ? userData.email : "",
+    fullName: userData ? userData.firstName + " " + userData.secondName : "",
+    phoneNumber: userData ? userData.phoneNumber : "",
+    addressOne: userData ? userData.addressOne : "",
+    addressTwo : userData ? userData.addressTwo : "",
+    city: userData ? userData.city : "",
+    county: userData ? userData.county : "",
   });
 
   const [paymentMethod, setPaymentMethod] = useState("card");
@@ -121,7 +123,8 @@ export default function Checkout() {
               <div className="form-group">
                 <label>Nume Complet</label>
                 <input
-                  type="text"
+                defaultValue={contact.fullName}
+                type="text"
                   required
                   onChange={(e) =>
                     setContact({
@@ -134,6 +137,7 @@ export default function Checkout() {
               <div className="form-group">
                 <label>Adresă de Email</label>
                 <input
+                defaultValue={contact.email}
                   type="email"
                   required
                   onChange={(e) =>
@@ -147,6 +151,7 @@ export default function Checkout() {
               <div className="form-group">
                 <label>Județ</label>
                 <input
+                defaultValue={contact.county}
                   type="text"
                   required
                   onChange={(e) =>
@@ -160,6 +165,7 @@ export default function Checkout() {
               <div className="form-group">
                 <label>Localitate</label>
                 <input
+                defaultValue={contact.city}
                   type="text"
                   required
                   onChange={(e) =>
@@ -173,12 +179,26 @@ export default function Checkout() {
               <div className="form-group">
                 <label>Strada și numărul</label>
                 <input
+                defaultValue={contact.addressOne}
                   type="text"
                   required
                   onChange={(e) =>
                     setContact({
                       ...contact,
-                      street: e.target.value,
+                      addressOne: e.target.value,
+                    })
+                  }
+                ></input>
+              </div>
+              <div className="form-group">
+                <label>Bloc și ap. (opțional)</label>
+                <input
+                defaultValue={contact.addressTwo}
+                  type="text"
+                  onChange={(e) =>
+                    setContact({
+                      ...contact,
+                      addressTwo: e.target.value,
                     })
                   }
                 ></input>
@@ -186,6 +206,7 @@ export default function Checkout() {
               <div className="form-group">
                 <label>Număr de telefon</label>
                 <input
+                defaultValue={contact.phoneNumber}
                   type="number"
                   required
                   onChange={(e) =>

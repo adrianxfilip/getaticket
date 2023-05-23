@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { loadUserData } from "../../actions";
 import UserTickets from "./UserTickets";
 import PersonalInfo from "./PersonalInfo";
+import PromoCodes from "./PromoCodes";
 import { logIn } from "../../actions";
 
 function UserDashboard() {
@@ -46,6 +47,7 @@ function UserDashboard() {
   const dashboardPanels = {
     userTickets: <UserTickets />,
     personalInfo: <PersonalInfo />,
+    promoCodes: <PromoCodes />
   };
 
   const [showID, setShowID] = useState(false)
@@ -81,6 +83,14 @@ function UserDashboard() {
                 }}
               >
                 Ticketele Mele
+              </li>
+              <li
+                className={activeDashboard == "promoCodes" ? "active" : ""}
+                onClick={() => {
+                  setDashboard("promoCodes");
+                }}
+              >
+                Coduri promoționale
               </li>
               <li onClick={()=>{dispatch(logIn("", ""))}}>Deconectare</li>
             </ul>

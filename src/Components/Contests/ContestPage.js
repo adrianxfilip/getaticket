@@ -44,44 +44,45 @@ export default function ContestPage() {
   const cart = useSelector((state) => state.cart);
 
   const ticketDate = new Date(contest.date);
-  const today = new Date()
+  const today = new Date();
 
   var _second = 1000;
   var _minute = _second * 60;
   var _hour = _minute * 60;
   var _day = _hour * 24;
-  const remainingTime  = ticketDate - today
+  const remainingTime = ticketDate - today;
 
   const drawDate = new Date(contest.drawDate);
-  const [ticketNumber, setTicketNumber] = useState(cart[contest._id]? cart[contest._id].tickets : 1);
+  const [ticketNumber, setTicketNumber] = useState(
+    cart[contest._id] ? cart[contest._id].tickets : 1
+  );
 
   const [timerState, setTimer] = useState({
     days: Math.floor(remainingTime / _day),
     hours: Math.floor((remainingTime % _day) / _hour),
     minutes: Math.floor((remainingTime % _hour) / _minute),
-    seconds: Math.floor((remainingTime % _minute)/ _second),
-    started : false,
+    seconds: Math.floor((remainingTime % _minute) / _second),
+    started: false,
     finished: false,
   });
 
   useEffect(() => {
     setInterval(() => {
-
       var now = new Date();
       var distance = ticketDate - now;
-  
+
       var days = Math.floor(distance / _day);
       var hours = Math.floor((distance % _day) / _hour);
       var minutes = Math.floor((distance % _hour) / _minute);
       var seconds = Math.floor((distance % _minute) / _second);
-  
+
       if (parseFloat(distance) > 0) {
         setTimer({
           days: days,
           hours: hours,
           minutes: minutes,
           seconds: seconds,
-          finished: false
+          finished: false,
         });
       } else {
         setTimer({
@@ -89,7 +90,7 @@ export default function ContestPage() {
           hours: "00",
           minutes: "00",
           seconds: "00",
-          finished: true
+          finished: true,
         });
       }
     }, 1000);
@@ -157,11 +158,13 @@ export default function ContestPage() {
               </div>
               <div className="ticket-purchase-container">
                 <div className="countdown-container">
-                  {remainingTime < 1 || timerState.finished == true || contest.totalTickets - contest.soldTickets <= 0? (
+                  {remainingTime < 1 ||
+                  timerState.finished == true ||
+                  contest.totalTickets - contest.soldTickets <= 0 ? (
                     <>
                       <p className="buy-period-over">
                         Înscrierile la acest concurs s-au încheiat.
-                        <br/>
+                        <br />
                         <br /> Data extragerii:
                         <br />
                         {drawDate.getDate() +
@@ -169,11 +172,15 @@ export default function ContestPage() {
                           months[drawDate.getMonth()] +
                           " " +
                           drawDate.getFullYear()}
-                        <br/>
-                        <br/>
-                        {contest.winner.name != "" ? "Castigător: " + contest.winner.name : "Câștigătorul va fi anunțat curând."}
-                        <br/>
-                        {contest.winner.ticketID != "" ? "#Ticket: " + contest.winner.ticketID : ""}
+                        <br />
+                        <br />
+                        {contest.winner.name != ""
+                          ? "Castigător: " + contest.winner.name
+                          : "Câștigătorul va fi anunțat curând."}
+                        <br />
+                        {contest.winner.ticketID != ""
+                          ? "#Ticket: " + contest.winner.ticketID
+                          : ""}
                       </p>
                     </>
                   ) : (
@@ -225,83 +232,96 @@ export default function ContestPage() {
                     </p>
                   </div>
                 </div>
-                <div className="ticket-price-wrapper">
-                  <p>${contest.pricePerTicket}</p>
-                  <p>Per Ticket</p>
-                </div>
-                {remainingTime < 1 || timerState.finished == true  || contest.totalTickets - contest.soldTickets <= 0? (
-                  <></>
+                {contest.giveaway.isGiveaway ? (
+                  <>
+                    <p className="giveaway-prompt">Acest concurs este un Giveaway. <br/> <span>Pentru mai multe detalii vizitați pagina noastră de Instagram.</span></p>
+                    <i className="fi fi-brands-instagram" onClick={()=>{window.open('https://www.instagram.com/')}}></i>
+                  </>
                 ) : (
                   <>
-                    {" "}
-                    <div className="ticket-number-wrapper">
-                      <button
-                        onClick={() => {
-                          if (inputRef.current.value > 1) {
-                            setTicketNumber(ticketNumber - 1);
-                            setUpdate(false);
-                          }
-                        }}
-                      >
-                        <i className="fi fi-rr-minus-small"></i>
-                      </button>
-                      <input
-                        type="number"
-                        ref={inputRef}
-                        onBlur={(e) => {
-                          if (e.target.value < 1) {
-                            setTicketNumber(1);
-                          }
-                        }}
-                        onChange={(e) => {
-                          if (
-                            e.target.value <= contest.maxTickets &&
-                            e.target.value > -1  && e.target.value <= contest.totalTickets - contest.soldTickets
-                          ) {
-                            if (!e.target.value) {
-                              setTicketNumber(e.target.value);
-                            } else {
-                              setTicketNumber(parseInt(e.target.value));
-                            }
-                          }
-                        }}
-                        value={ticketNumber}
-                      ></input>
-                      <button
-                        onClick={() => {
-                          if (inputRef.current.value < contest.maxTickets) {
-                            setTicketNumber(ticketNumber + 1);
-                            setUpdate(false);
-                          }
-                        }}
-                      >
-                        <i className="fi fi-rr-plus-small"></i>
-                      </button>
+                    <div className="ticket-price-wrapper">
+                      <p>${contest.pricePerTicket}</p>
+                      <p>Per Ticket</p>
                     </div>
-                    <p
-                      className="cart-updated-confirmation"
-                      style={{ display: cartUpdated ? "block" : "none" }}
-                    >
-                      Coșul tău a fost actualizat cu succes!
-                    </p>
-                    <button
-                      className="buy-tickets-button"
-                      onClick={() => {
-                        dispatch(
-                          addToCart(
-                            contest._id,
-                            ticketNumber,
-                            contest.pricePerTicket,
-                            contest.images[0],
-                            contest.name,
-                            contest.drawDate
-                          )
-                        );
-                        setUpdate(true);
-                      }}
-                    >
-                      Adaugă în coș
-                    </button>
+                    {remainingTime < 1 ||
+                    timerState.finished == true ||
+                    contest.totalTickets - contest.soldTickets <= 0 ? (
+                      <></>
+                    ) : (
+                      <>
+                        {" "}
+                        <div className="ticket-number-wrapper">
+                          <button
+                            onClick={() => {
+                              if (inputRef.current.value > 1) {
+                                setTicketNumber(ticketNumber - 1);
+                                setUpdate(false);
+                              }
+                            }}
+                          >
+                            <i className="fi fi-rr-minus-small"></i>
+                          </button>
+                          <input
+                            type="number"
+                            ref={inputRef}
+                            onBlur={(e) => {
+                              if (e.target.value < 1) {
+                                setTicketNumber(1);
+                              }
+                            }}
+                            onChange={(e) => {
+                              if (
+                                e.target.value <= contest.maxTickets &&
+                                e.target.value > -1 &&
+                                e.target.value <=
+                                  contest.totalTickets - contest.soldTickets
+                              ) {
+                                if (!e.target.value) {
+                                  setTicketNumber(e.target.value);
+                                } else {
+                                  setTicketNumber(parseInt(e.target.value));
+                                }
+                              }
+                            }}
+                            value={ticketNumber}
+                          ></input>
+                          <button
+                            onClick={() => {
+                              if (inputRef.current.value < contest.maxTickets) {
+                                setTicketNumber(ticketNumber + 1);
+                                setUpdate(false);
+                              }
+                            }}
+                          >
+                            <i className="fi fi-rr-plus-small"></i>
+                          </button>
+                        </div>
+                        <p
+                          className="cart-updated-confirmation"
+                          style={{ display: cartUpdated ? "block" : "none" }}
+                        >
+                          Coșul tău a fost actualizat cu succes!
+                        </p>
+                        <button
+                          className="buy-tickets-button"
+                          onClick={() => {
+                            dispatch(
+                              addToCart(
+                                contest._id,
+                                ticketNumber,
+                                contest.pricePerTicket,
+                                contest.images[0],
+                                contest.name,
+                                contest.drawDate
+                              )
+                            );
+                            setUpdate(true);
+                          }}
+                        >
+                          Adaugă în coș
+                        </button>
+                      </>
+                    )}
                   </>
                 )}
               </div>

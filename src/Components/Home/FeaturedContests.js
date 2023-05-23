@@ -13,11 +13,15 @@ function ContestCard(props) {
         </div>
         <div className="info-wrapper first-wrapper">
           <p className="prize-name">{props.name}</p>
-          <p className="ticket-price">
-            ${props.price}
-            <br />
-            <span>Preț ticket</span>
-          </p>
+          {props.isGiveaway ? (
+            <p className="ticket-price giveaway">Giveaway</p>
+          ) : (
+            <p className="ticket-price">
+              ${props.price}
+              <br />
+              <span>Preț ticket</span>
+            </p>
+          )}
         </div>
         <div className="info-wrapper second-wrapper">
           {props.remainingTime > 0 && props.remainingTickets > 0 ? (
@@ -109,7 +113,7 @@ export default function FeaturedContests() {
                 let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
                 return (
                   <ContestCard
-                    name={contest.name + index}
+                    name={contest.name}
                     price={contest.pricePerTicket}
                     remainingTime={TotalDays}
                     remainingTickets={
@@ -119,6 +123,7 @@ export default function FeaturedContests() {
                     id={"C" + index}
                     contestID={contest._id}
                     key={index}
+                    isGiveaway={contest.giveaway.isGiveaway}
                   ></ContestCard>
                 );
               })
