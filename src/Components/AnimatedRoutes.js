@@ -10,6 +10,8 @@ import ContactUs from "./ContactUs/ContactUs";
 import ActiveContests from "./Contests/ActiveContests";
 import Cart from "./Cart/Cart";
 import Checkout from "./Checkout/Checkout";
+import VerifyAccount from "./Profile/VerifyAccount";
+
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -22,10 +24,12 @@ function AnimatedRoutes() {
         <Route path="profile" element={<Profile />} />
         <Route path="contests" element={<ActiveContests />} />
         <Route path="contests/:id" element={<ContestPage/>} />
+        <Route path="contests/*" element={<NotFound/>}/>
         <Route path="faq" element={<FAQ />}/>
         <Route path="/contact" element={<ContactUs />}/>
         <Route path="/cart" element={<Cart />}/>
         <Route path="/checkout" element={<Checkout />}/>
+        <Route path="verify/:id" element={<VerifyAccount />}/>
       </Routes>
     </AnimatePresence>
   );

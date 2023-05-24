@@ -5,7 +5,7 @@ export default function NotFound(){
     return(
         <div className="not-found">
             <img src={notFound}></img>
-            <p>Pagina pe care o cauți nu există.</p>
+            <p>Pagina pe care o cauți nu există</p>
         </div>
     )
 }

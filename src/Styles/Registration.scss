@@ -101,12 +101,26 @@
       }
     }
   }
+  .password-recovery-confirmation{
+    color: #00ffb8;
+    text-align: center;
+  }
+  .recover-form{
+    .back-to-login{
+      color: #00ffb8;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+  .error-message{
+    margin-bottom: 1em;
+  }
 }
 
 .register-success-wrapper {
   background-color: #4e40b9;
   width: fit-content;
-  margin: 15em auto 0;
+  margin: 0 auto;
   padding: 3em 3em 1em;
   border-radius: 20px;
   box-shadow: 0.3px 1.2px 1.6px rgba(0, 0, 0, 0.017),
@@ -164,6 +178,9 @@
 
   .signin-form{
     padding: 2em 1em;
+    .recover-form{
+      margin: 0 auto;
+    }
     h1{
       font-size: 1.5em;
     }
@@ -187,7 +204,7 @@
   .signin-form{
     padding: 2em 1em;
     h1{
-      font-size: 1.5em;
+      font-size: 1.2em;
     }
     form{
       width: 15em;

@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { fetchURL } from "../../settings";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import {logIn} from "../../actions"
+import { logIn } from "../../actions";
 
 function RegisterForm(props) {
   const regex =
@@ -192,7 +192,7 @@ function RegisterForm(props) {
 }
 
 function SigninForm(props) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const signin = () => {
     changeLoadingState(true);
     fetch(fetchURL + "/login", {
@@ -210,7 +210,7 @@ function SigninForm(props) {
         }
         if (res.success === true) {
           var now = new Date().getTime();
-          dispatch(logIn(res.token, now, res.userData, res.userContests))
+          dispatch(logIn(res.token, now, res.userData, res.userContests));
         }
       })
       .catch((error) => {
@@ -281,7 +281,13 @@ function SigninForm(props) {
           <p className="error-message">{errorMessage}</p>
         )}
         <p>
-          <span>Ai uitat parola?</span>
+          <span
+            onClick={() => {
+              props.changeForm("recoverPassword");
+            }}
+          >
+            Ai uitat parola?
+          </span>
         </p>
         <button type="submit" autoFocus>
           {isLoading ? <i className="fi fi-rr-spinner"></i> : "Log In"}
@@ -295,6 +301,87 @@ function SigninForm(props) {
           >
             Înregistrează-te.
           </span>
+        </p>
+      </form>
+    </motion.div>
+  );
+}
+
+function PasswordRecoveryForm(props) {
+  const recover = () => {
+    setLoading(true);
+    fetch(fetchURL + "/passwordRecovery", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ email: email }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setLoading(false);
+        if (res.success === false) {
+          setErrorMessage(res.message);
+        }
+        if (res.success === true) {
+          setConfirmation(true)
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const [email, setEmail] = useState("");
+
+  const [isLoading, setLoading] = useState(false);
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const [showConfirmation, setConfirmation] = useState(false)
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="signin-form"
+    >
+      <h1>Recuperează-ți parola</h1>
+      {showConfirmation ? <p className="password-recovery-confirmation">Un email cu parola dumneavoastră a fost trimis la adresa specificată.</p> : <></>}
+      <form
+        className="recover-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          recover();
+        }}
+      >
+        <div className="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            placeholder="Adresă de email"
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          ></input>
+        </div>
+        <button type="submit" autoFocus>
+          {isLoading ? <i className="fi fi-rr-spinner"></i> : "Trimite email"}
+        </button>
+        {errorMessage === "" ? (
+          ""
+        ) : (
+          <p className="error-message">{errorMessage}</p>
+        )}
+        <p
+          className="back-to-login"
+          style={{ textAlign: "center" }}
+          onClick={() => {
+            props.changeForm("signin");
+          }}
+        >
+          Înapoi la Login
         </p>
       </form>
     </motion.div>
@@ -324,18 +411,16 @@ function RegisterSuccess(props) {
 function Signin(props) {
   const [activeForm, changeForm] = useState("signin");
 
+  const forms = {
+    signin: <SigninForm changeForm={changeForm} />,
+    register: <RegisterForm changeForm={changeForm} />,
+    recoverPassword: <PasswordRecoveryForm changeForm={changeForm} />,
+    registerSuccess : <RegisterSuccess changeForm={changeForm}/>
+  };
+
   return (
     <AnimatePresence mode="wait" initial={false}>
-      {activeForm === "signin" ? (
-        <SigninForm
-          changeForm={changeForm}
-          key="signin"
-        />
-      ) : activeForm === "register" ? (
-        <RegisterForm changeForm={changeForm} key="register" />
-      ) : (
-        <RegisterSuccess changeForm={changeForm} key="changeForm" />
-      )}
+      {forms[activeForm]}
     </AnimatePresence>
   );
 }

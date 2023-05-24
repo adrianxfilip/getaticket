@@ -4,6 +4,21 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100%;
+    .archived-contests-btn{
+        background-image: -webkit-linear-gradient(7deg, #ec1379 0%, #6c0092 100%);
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2em;
+        font-weight: 500;
+        color: white;
+        font-family: "Josefin Sans", sans-serif;
+        padding: 1em 2em;
+        display: block;
+        width: fit-content;
+        margin: 3em auto 0;
+        cursor: pointer;
+        box-shadow: 0px 17px 40px 0px rgba(201, 3, 112, 0.35);
+    }
 }
 
 .contests-page{

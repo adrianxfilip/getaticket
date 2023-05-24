@@ -95,6 +95,7 @@ export default function ActiveContests() {
               <></>
             )}
           </div>
+          <Link className="archived-contests-btn" to="/archived-contests">Vezi concursuri finalizate</Link>
         </div>
       </div>
     );

@@ -19,6 +19,7 @@
 }
 
 .contact-form-wrapper {
+  box-sizing: border-box;
   margin: 5em auto 0;
   padding: 1em 3em 0;
   border-radius: 15px;
@@ -36,6 +37,7 @@
   }
   form{
     margin: 2em 2em 0 0;
+    width: 400px;
   }
   .form-group {
     display: flex;
@@ -48,11 +50,12 @@
     }
     input, textarea{
     background-color: rgba(0, 18, 50, 0.102);
-    font-size: 16px;
+    font-size: 1em;
     color: #ffffff;
     border:1px solid #7279cd;
     border-radius: 10px;
     padding: 20px;
+    box-sizing: border-box
     };
     input:focus, textarea:focus{
       outline: none;
@@ -63,9 +66,8 @@
       color: #7279cd;;
     }
     textarea{
-      min-width: 400px;
-      min-height: 100px;
-      resize: none;
+      width: 100%;
+      min-height: 150px;
     }
   }
   button{
@@ -149,12 +151,13 @@
 
 @media only screen and (max-width: 600px) {
   .contact-us-page{
+    font-size: 14px;
     padding: 7em 0 0 0;
     h1{
       font-size:2em;
     }
     p{
-      font-size:1em;
+      font-size:1.2em;
       margin: 0 1em;
     }
   }
@@ -164,10 +167,8 @@
       font-size: 1.5em;
       margin: 0;
     }
-    .form-group{
-      textarea{
-        min-width: 300px;
-      };
+    form{
+      width: 400px;
     }
     .info-wrapper{
       .info-card{
@@ -176,8 +177,24 @@
         }
       }
       .contact-img{
-        width: 300px;
+        width: 150px;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .contact-form-wrapper{
+    form{
+      width: 300px;
+    }
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .contact-form-wrapper{
+    form{
+      width: 250px;
     }
   }
 }

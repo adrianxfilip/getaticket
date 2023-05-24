@@ -11,6 +11,7 @@ import ImageCarousel from "./ContestImagesCarousel";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../actions";
 import { useLayoutEffect } from "react";
+import NotFound from "../NotFound";
 
 const specAssets = {
   displacement: ["Capacitate", displacement],
@@ -43,7 +44,7 @@ export default function ContestPage() {
 
   const cart = useSelector((state) => state.cart);
 
-  const ticketDate = new Date(contest.date);
+  const ticketDate = new Date(contest?.date);
   const today = new Date();
 
   var _second = 1000;
@@ -52,9 +53,9 @@ export default function ContestPage() {
   var _day = _hour * 24;
   const remainingTime = ticketDate - today;
 
-  const drawDate = new Date(contest.drawDate);
+  const drawDate = new Date(contest?.drawDate);
   const [ticketNumber, setTicketNumber] = useState(
-    cart[contest._id] ? cart[contest._id].tickets : 1
+    cart[contest?._id] ? cart[contest?._id].tickets : 1
   );
 
   const [timerState, setTimer] = useState({
@@ -330,5 +331,7 @@ export default function ContestPage() {
         }
       </motion.div>
     );
+  }else{
+    return <NotFound/>
   }
 }
