@@ -11,7 +11,7 @@ import ActiveContests from "./Contests/ActiveContests";
 import Cart from "./Cart/Cart";
 import Checkout from "./Checkout/Checkout";
 import VerifyAccount from "./Profile/VerifyAccount";
-
+import ArchivedContests from "./Contests/ArchivedContests";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -30,6 +30,7 @@ function AnimatedRoutes() {
         <Route path="/cart" element={<Cart />}/>
         <Route path="/checkout" element={<Checkout />}/>
         <Route path="verify/:id" element={<VerifyAccount />}/>
+        <Route path="archived-contests" element={<ArchivedContests />} />
       </Routes>
     </AnimatePresence>
   );
