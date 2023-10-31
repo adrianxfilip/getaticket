@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/getaticket-client/static/css/main.0061b80a.css",
+    "main.js": "/getaticket-client/static/js/main.3d150b8f.js",
+    "static/media/circle.png": "/getaticket-client/static/media/circle.00d03eeeb1ad67356c14.png",
+    "static/media/inner-hero-shape-2.png": "/getaticket-client/static/media/inner-hero-shape-2.110dab8529fb5a4c9289.png",
+    "static/media/uicons-regular-rounded-BG3GDTFR.eot": "/getaticket-client/static/media/uicons-regular-rounded-BG3GDTFR.2a361185de096a6e3e99.eot",
+    "static/media/uicons-bold-rounded-ZDARGU7R.eot": "/getaticket-client/static/media/uicons-bold-rounded-ZDARGU7R.ac2c608bf183bb6b3390.eot",
+    "static/media/uicons-solid-rounded-YIIQLYY7.eot": "/getaticket-client/static/media/uicons-solid-rounded-YIIQLYY7.46f60d555e51ea1b1a10.eot",
+    "static/media/uicons-regular-straight-S3GWQKO5.eot": "/getaticket-client/static/media/uicons-regular-straight-S3GWQKO5.ae50787170c6ab4c85f8.eot",
+    "static/media/uicons-bold-straight-23IB3KLR.eot": "/getaticket-client/static/media/uicons-bold-straight-23IB3KLR.298e9331d96179b90f37.eot",
+    "static/media/uicons-solid-straight-WGHULFPL.eot": "/getaticket-client/static/media/uicons-solid-straight-WGHULFPL.eacd4ea838f1175de666.eot",
+    "static/media/uicons-regular-rounded-ATYWIXGY.woff": "/getaticket-client/static/media/uicons-regular-rounded-ATYWIXGY.c0099907ce57cbf0aef9.woff",
+    "static/media/uicons-bold-rounded-QX2IC5IQ.woff": "/getaticket-client/static/media/uicons-bold-rounded-QX2IC5IQ.4dd4c631024d4d6436d0.woff",
+    "static/media/uicons-solid-rounded-AWPFWVW5.woff": "/getaticket-client/static/media/uicons-solid-rounded-AWPFWVW5.2621ec712bf05b5fc9e6.woff",
+    "static/media/uicons-regular-rounded-3OJX2N3K.woff2": "/getaticket-client/static/media/uicons-regular-rounded-3OJX2N3K.3f7f2c80230f591f0231.woff2",
+    "static/media/uicons-regular-straight-NEQD4Y5Q.woff": "/getaticket-client/static/media/uicons-regular-straight-NEQD4Y5Q.966e1e1972c9e8cf7a97.woff",
+    "static/media/uicons-bold-rounded-YL3LKNDW.woff2": "/getaticket-client/static/media/uicons-bold-rounded-YL3LKNDW.094c69c0b8ba7739e058.woff2",
+    "static/media/uicons-bold-straight-MAKDQRMI.woff": "/getaticket-client/static/media/uicons-bold-straight-MAKDQRMI.cafb87f71d0eb3b9240f.woff",
+    "static/media/uicons-solid-rounded-WBSH5E5L.woff2": "/getaticket-client/static/media/uicons-solid-rounded-WBSH5E5L.653859786d3f3c0c5383.woff2",
+    "static/media/uicons-solid-straight-IZQLN5ZC.woff": "/getaticket-client/static/media/uicons-solid-straight-IZQLN5ZC.72196561b9ec276f7f74.woff",
+    "static/media/uicons-regular-straight-3S4NR4TJ.woff2": "/getaticket-client/static/media/uicons-regular-straight-3S4NR4TJ.09433718fffb67e30dd5.woff2",
+    "static/media/uicons-bold-straight-JADQG6K6.woff2": "/getaticket-client/static/media/uicons-bold-straight-JADQG6K6.2226af6ba42c5c6a1600.woff2",
+    "static/media/featured-contests-background.png": "/getaticket-client/static/media/featured-contests-background.c6cfb00ae63dd7764862.png",
+    "static/media/uicons-solid-straight-U6MSERDQ.woff2": "/getaticket-client/static/media/uicons-solid-straight-U6MSERDQ.ad5e6573715d0da0f85a.woff2",
+    "static/media/uicons-brands-3CXSFMBS.eot": "/getaticket-client/static/media/uicons-brands-3CXSFMBS.de82ac98f63ddbc503f6.eot",
+    "static/media/contact.png": "/getaticket-client/static/media/contact.c0a14c007e9add52f114.png",
+    "static/media/play-el.png": "/getaticket-client/static/media/play-el.41bc05c591f4cb70b320.png",
+    "static/media/uicons-brands-VHW43T2X.woff": "/getaticket-client/static/media/uicons-brands-VHW43T2X.6ba8d1c0fc6203880746.woff",
+    "static/media/uicons-brands-QJAQFSP2.woff2": "/getaticket-client/static/media/uicons-brands-QJAQFSP2.5f6b6a7ae0003bd6fe89.woff2",
+    "static/media/404.png": "/getaticket-client/static/media/404.72ccd08dd57c3192df15.png",
+    "static/media/support.png": "/getaticket-client/static/media/support.23a227a5e2a51898492e.png",
+    "index.html": "/getaticket-client/index.html",
+    "main.0061b80a.css.map": "/getaticket-client/static/css/main.0061b80a.css.map",
+    "main.3d150b8f.js.map": "/getaticket-client/static/js/main.3d150b8f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0061b80a.css",
+    "static/js/main.3d150b8f.js"
+  ]
+}
