@@ -1,7 +1,7 @@
  {
   "name": "getaticket",
   "version": "0.1.0",
-  "homepage": "https://adrianxfilip.github.io/getaticket-client",
+  "homepage": "https://adrianxfilip.github.io/getaticket",
   "private": true,
   "dependencies": {
     "@flaticon/flaticon-uicons": "^2.0.1",
