@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/getaticket-client/static/css/main.0061b80a.css",
-    "main.js": "/getaticket-client/static/js/main.3d150b8f.js",
+    "main.js": "/getaticket-client/static/js/main.4fda50bf.js",
     "static/media/circle.png": "/getaticket-client/static/media/circle.00d03eeeb1ad67356c14.png",
     "static/media/inner-hero-shape-2.png": "/getaticket-client/static/media/inner-hero-shape-2.110dab8529fb5a4c9289.png",
     "static/media/uicons-regular-rounded-BG3GDTFR.eot": "/getaticket-client/static/media/uicons-regular-rounded-BG3GDTFR.2a361185de096a6e3e99.eot",
@@ -32,10 +32,10 @@
     "static/media/support.png": "/getaticket-client/static/media/support.23a227a5e2a51898492e.png",
     "index.html": "/getaticket-client/index.html",
     "main.0061b80a.css.map": "/getaticket-client/static/css/main.0061b80a.css.map",
-    "main.3d150b8f.js.map": "/getaticket-client/static/js/main.3d150b8f.js.map"
+    "main.4fda50bf.js.map": "/getaticket-client/static/js/main.4fda50bf.js.map"
   },
   "entrypoints": [
     "static/css/main.0061b80a.css",
-    "static/js/main.3d150b8f.js"
+    "static/js/main.4fda50bf.js"
   ]
 }
