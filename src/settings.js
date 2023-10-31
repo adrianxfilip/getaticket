@@ -1,3 +1,3 @@
-const fetchURL = "http://192.168.1.187:8080"
+const fetchURL = "https://getaticket.ey.r.appspot.com"
 
 export {fetchURL}
