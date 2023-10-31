@@ -20,17 +20,17 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes key={location.pathname} location={location}>
         <Route path="*" element={<NotFound />}/>
-        <Route index element={<Home />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="contests" element={<ActiveContests />} />
-        <Route path="contests/:id" element={<ContestPage/>} />
-        <Route path="contests/*" element={<NotFound/>}/>
-        <Route path="faq" element={<FAQ />}/>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/contests" element={<ActiveContests />} />
+        <Route path="/contests/:id" element={<ContestPage/>} />
+        <Route path="/contests/*" element={<NotFound/>}/>
+        <Route path="/faq" element={<FAQ />}/>
         <Route path="/contact" element={<ContactUs />}/>
         <Route path="/cart" element={<Cart />}/>
         <Route path="/checkout" element={<Checkout />}/>
-        <Route path="verify/:id" element={<VerifyAccount />}/>
-        <Route path="archived-contests" element={<ArchivedContests />} />
+        <Route path="/verify/:id" element={<VerifyAccount />}/>
+        <Route path="/archived-contests" element={<ArchivedContests />} />
       </Routes>
     </AnimatePresence>
   );
