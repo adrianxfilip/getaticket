@@ -41,12 +41,12 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter basename="/">
+    <HashRouter basename="/">
       <ScrollToTop />
       <Layout />
       <AnimatedRoutes />
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
