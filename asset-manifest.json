@@ -1,9 +1,7 @@
 {
   "files": {
-    "main.css": "/getaticket/static/css/main.1a28fcb9.css",
+    "main.css": "/getaticket/static/css/main.b7f9a3c8.css",
     "main.js": "/getaticket/static/js/main.312fe8e8.js",
-    "static/media/circle.png": "/getaticket/static/media/circle.00d03eeeb1ad67356c14.png",
-    "static/media/inner-hero-shape-2.png": "/getaticket/static/media/inner-hero-shape-2.110dab8529fb5a4c9289.png",
     "static/media/uicons-regular-rounded-BG3GDTFR.eot": "/getaticket/static/media/uicons-regular-rounded-BG3GDTFR.2a361185de096a6e3e99.eot",
     "static/media/uicons-bold-rounded-ZDARGU7R.eot": "/getaticket/static/media/uicons-bold-rounded-ZDARGU7R.ac2c608bf183bb6b3390.eot",
     "static/media/uicons-solid-rounded-YIIQLYY7.eot": "/getaticket/static/media/uicons-solid-rounded-YIIQLYY7.46f60d555e51ea1b1a10.eot",
@@ -11,6 +9,7 @@
     "static/media/uicons-bold-straight-23IB3KLR.eot": "/getaticket/static/media/uicons-bold-straight-23IB3KLR.298e9331d96179b90f37.eot",
     "static/media/uicons-solid-straight-WGHULFPL.eot": "/getaticket/static/media/uicons-solid-straight-WGHULFPL.eacd4ea838f1175de666.eot",
     "static/media/uicons-regular-rounded-ATYWIXGY.woff": "/getaticket/static/media/uicons-regular-rounded-ATYWIXGY.c0099907ce57cbf0aef9.woff",
+    "static/media/circle.png": "/getaticket/static/media/circle.88a2e65e269b2f58757e.png",
     "static/media/uicons-bold-rounded-QX2IC5IQ.woff": "/getaticket/static/media/uicons-bold-rounded-QX2IC5IQ.4dd4c631024d4d6436d0.woff",
     "static/media/uicons-solid-rounded-AWPFWVW5.woff": "/getaticket/static/media/uicons-solid-rounded-AWPFWVW5.2621ec712bf05b5fc9e6.woff",
     "static/media/uicons-regular-rounded-3OJX2N3K.woff2": "/getaticket/static/media/uicons-regular-rounded-3OJX2N3K.3f7f2c80230f591f0231.woff2",
@@ -20,6 +19,7 @@
     "static/media/uicons-solid-rounded-WBSH5E5L.woff2": "/getaticket/static/media/uicons-solid-rounded-WBSH5E5L.653859786d3f3c0c5383.woff2",
     "static/media/uicons-solid-straight-IZQLN5ZC.woff": "/getaticket/static/media/uicons-solid-straight-IZQLN5ZC.72196561b9ec276f7f74.woff",
     "static/media/uicons-regular-straight-3S4NR4TJ.woff2": "/getaticket/static/media/uicons-regular-straight-3S4NR4TJ.09433718fffb67e30dd5.woff2",
+    "static/media/inner-hero-shape-2.png": "/getaticket/static/media/inner-hero-shape-2.98b00ecc0d6078556bb7.png",
     "static/media/uicons-bold-straight-JADQG6K6.woff2": "/getaticket/static/media/uicons-bold-straight-JADQG6K6.2226af6ba42c5c6a1600.woff2",
     "static/media/featured-contests-background.png": "/getaticket/static/media/featured-contests-background.c6cfb00ae63dd7764862.png",
     "static/media/uicons-solid-straight-U6MSERDQ.woff2": "/getaticket/static/media/uicons-solid-straight-U6MSERDQ.ad5e6573715d0da0f85a.woff2",
@@ -31,11 +31,11 @@
     "static/media/404.png": "/getaticket/static/media/404.72ccd08dd57c3192df15.png",
     "static/media/support.png": "/getaticket/static/media/support.23a227a5e2a51898492e.png",
     "index.html": "/getaticket/index.html",
-    "main.1a28fcb9.css.map": "/getaticket/static/css/main.1a28fcb9.css.map",
+    "main.b7f9a3c8.css.map": "/getaticket/static/css/main.b7f9a3c8.css.map",
     "main.312fe8e8.js.map": "/getaticket/static/js/main.312fe8e8.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a28fcb9.css",
+    "static/css/main.b7f9a3c8.css",
     "static/js/main.312fe8e8.js"
   ]
 }
